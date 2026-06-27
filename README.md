@@ -1,157 +1,471 @@
 <div align="center">
 
+```
+╔══════════════════════════════════════════════════════════════╗
+║  ██████╗  █████╗ ███╗   ███╗██╗███████╗██╗   ██╗           ║
+║ ██╔════╝ ██╔══██╗████╗ ████║██║██╔════╝╚██╗ ██╔╝           ║
+║ ██║  ███╗███████║██╔████╔██║██║█████╗   ╚████╔╝            ║
+║ ██║   ██║██╔══██║██║╚██╔╝██║██║██╔══╝    ╚██╔╝             ║
+║ ╚██████╔╝██║  ██║██║ ╚═╝ ██║██║██║        ██║              ║
+║  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝        ╚═╝              ║
+║                                                              ║
+║  ███████╗██╗   ██╗███████╗██████╗ ██╗   ██╗████████╗██╗  ██╗║
+║  ██╔════╝██║   ██║██╔════╝██╔══██╗╚██╗ ██╔╝╚══██╔══╝██║  ██║║
+║  █████╗  ██║   ██║█████╗  ██████╔╝ ╚████╔╝    ██║   ███████║║
+║  ██╔══╝  ╚██╗ ██╔╝██╔══╝  ██╔══██╗  ╚██╔╝     ██║   ██╔══██║║
+║  ███████╗ ╚████╔╝ ███████╗██║  ██║   ██║      ██║   ██║  ██║║
+║  ╚══════╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚═╝  ╚═╝║
+╚══════════════════════════════════════════════════════════════╝
+```
+
 # 🎮 Gamify Everything
 
-**Turn your real-life habits and goals into an 8-bit retro pixel adventure powered by Google Gemini AI.**  
-**将现实生活目标（减肥、健身、早起、学习）自动转化为 8-bit 复古像素打卡与收集游戏。**
+### *Turn Real-Life Goals into an 8-Bit Retro Pixel Adventure*
+### *将现实生活目标转化为 8-bit 复古像素 RPG 打卡与收集游戏*
 
-[🌐 English](#-english-version) | [🌐 简体中文](#-简体中文)
+**Powered by Google Gemini AI — Built for Google AI Hackathon 2026**
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Google_Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud)](https://gamify-frontend-943810940065.us-central1.run.app)
-[![API Docs](https://img.shields.io/badge/API_Docs-FastAPI_Swagger-009688?style=for-the-badge&logo=fastapi)](https://gamify-backend-943810940065.us-central1.run.app/docs)
-[![Next.js](https://img.shields.io/badge/Frontend-Next.js_16-black?style=for-the-badge&logo=next.dot.js)](https://nextjs.org/)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Gemini AI](https://img.shields.io/badge/AI_Engine-Google_Gemini_3.0_%2F_Flash-8E75B2?style=for-the-badge&logo=google)](https://aistudio.google.com/)
+[![Live Demo](https://img.shields.io/badge/🎮_LIVE_DEMO-Play_Now-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://gamify-frontend-943810940065.us-central1.run.app)
+[![API Docs](https://img.shields.io/badge/📡_API_Docs-Swagger_UI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://gamify-backend-943810940065.us-central1.run.app/docs)
+[![Slides](https://img.shields.io/badge/🕹️_Interactive_Slides-View_Deck-e76f51?style=for-the-badge&logo=html5&logoColor=white)](./slides.html)
+[![Next.js 16](https://img.shields.io/badge/Frontend-Next.js_16-black?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Gemini AI](https://img.shields.io/badge/AI_Engine-Gemini_3.0_Pro_%2F_2.5_Flash-8E75B2?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com/)
 
 </div>
 
 ---
 
-<a name="-english-version"></a>
+<p align="center">
+  <a href="#-english">🌐 English</a> &nbsp;|&nbsp;
+  <a href="#-简体中文">🌐 简体中文</a> &nbsp;|&nbsp;
+  <a href="#-quickstart">🚀 Quickstart</a> &nbsp;|&nbsp;
+  <a href="#-interactive-slides">🕹️ Slides</a>
+</p>
 
-## 🌟 English Version
+---
+
+<a name="-english"></a>
+
+## 🌟 English
 
 ### 💡 What is Gamify Everything?
-**Gamify Everything** is a full-stack AI application designed to bridge the gap between vague personal aspirations and structured daily execution. Instead of traditional, boring to-do lists, it leverages **Google Gemini AI** to transform your real-life goals (e.g., *“Lose 5kg in 2 months”* or *“Learn Python daily”*) into actionable bite-sized tasks, verifying your daily progress through AI multimodal photo checks, and rewarding you with synthesized **8-bit pixel art items** crafted from your real-life check-in photos!
+
+**Gamify Everything** bridges the gap between vague personal aspirations and structured daily execution. Instead of boring to-do lists that you abandon after two weeks, it leverages **Google Gemini AI** to transform your real-life goals into an immersive **8-bit RPG adventure** — with AI-powered photo verification, experience points, boss raids, and a unique twist: your real-world check-in photos are transmuted into permanent **pixel art souvenirs** you can collect forever.
+
+> 🧠 **Powered by Google's Latest AI Stack** — We harness the full power of **Gemini 3.0 Pro** and **Gemini 2.5 Flash** working in concert: Pro's chain-of-thought reasoning decomposes vague natural-language goals into rigorously structured JSON campaign blueprints, while Flash's native vision-language understanding verifies real-world photo proof, identifies objects, and even writes witty RPG item lore — all from a single multimodal model. **Text in, pixels out. No separate OCR. No separate classifier. One model, end-to-end multimodality.**
+
+<p align="center">
+  <img src="docs/images/app-lobby.png" alt="Gamify Everything App Lobby" width="720" style="image-rendering:pixelated;" />
+  <br/>
+  <em>⬆️ Campaign Lobby — manage your gamified goals with retro 8-bit aesthetic</em>
+</p>
+
+---
 
 ### ✨ Key Features
-1. 🎯 **AI Goal Decomposition (`Gemini 3.0 Pro`)**: Automatically analyses vague life aspirations and breaks them down into milestones and practical daily tasks with structured JSON outputs.
-2. 📸 **Multimodal Proof Verification (`Gemini 2.5 Flash`)**: Upload real-life proof photos (e.g., gym selfies, study desks). Gemini Flash analyzes image authenticity in seconds before granting rewards.
-3. 🎨 **8-Bit Item Synthesis Pipeline**: A non-blocking asynchronous computer vision pipeline that transforms user check-in photos into transparent, retro 16-color 8-bit pixel art artifacts (`rembg` AI background removal + `pyxelate` downsampling + nearest-neighbor scaling) stored directly in your inventory!
-4. ☁️ **Cloud Native & Serverless**: Fully dockerized frontend (`Next.js standalone`) and backend (`FastAPI + U2Net pre-cached weights`) deployed on **Google Cloud Run** for instantaneous auto-scaling and zero cold-start latency.
+
+> 🧠 **Two Gemini Models, One Unified AI Pipeline** — From natural-language goal decomposition to vision-language photo verification to creative RPG lore generation, every AI-powered step runs on Google's latest Gemini model family. We take full advantage of Gemini's native **multimodality**: the same Flash model that verifies your gym selfie also detects what object you're holding *and* writes a witty fantasy description for it — no model-switching, no glue code.
+
+<table>
+<tr>
+<td width="50%">
+
+#### 🎯 AI Goal Decomposition — `Gemini 3.0 Pro`
+Automatically analyzes vague life aspirations (e.g., *"Lose 5kg in 2 months"* or *"Learn Python daily"*) and breaks them into a structured hierarchy through chain-of-thought reasoning:
+- **Daily Quests** — bite-sized micro-habits (2-3 per campaign)
+- **Weekly Milestones** — numeric checkpoint verifications
+- **Boss Raid** — the final outcome challenge with a legendary title reward
+
+Everything generated as **strictly-typed Structured JSON** via Gemini's native JSON response mode — RPG world-building lore, quantitative target analysis, and per-quest proof verification prompts, all in a single API call.
+
+<p align="center">
+  <img src="docs/images/goal-decomposition.png" alt="Goal Decomposition Dashboard" width="360" />
+  <br/>
+  <em>⬆️ Daily / Weekly / Boss three-tier quest system</em>
+</p>
+
+</td>
+<td width="50%">
+
+#### 📸 Multimodal Proof Verification — `Gemini 2.5 Flash`
+Upload real-life proof photos (gym selfies, study desks, healthy meals). Gemini Flash's **native vision-language multimodality** analyzes the image and proof prompt together in **milliseconds** — no separate OCR, no external classifier — returning a structured verdict directly:
+
+```
+{
+  "is_valid": true,
+  "confidence": 0.98,
+  "reason": "Clear photo of gym equipment...",
+  "detected_main_object": "Dumbbell Set"
+}
+```
+
+Even the **Free Upload / Synthesis** mode auto-approves any clear photo and crafts an 8-bit relic — no strict quest gates.
+
+<p align="center">
+  <img src="docs/images/photo-verification.png" alt="Photo Verification" width="360" />
+  <br/>
+  <em>⬆️ Upload a proof photo — AI verifies in real-time</em>
+</p>
+
+</td>
+</tr>
+</table>
+
+#### 🎨 8-Bit Pixel Transmutation Pipeline
+
+A non-blocking asynchronous computer vision pipeline transforms every verified check-in photo into a permanent, transparent **16-color NES-style pixel art artifact** stored in your inventory gallery.
+
+<p align="center">
+  <img src="docs/images/original-salad.jpeg" alt="Original Photo" width="280" />
+  &nbsp;&nbsp;⟶&nbsp;&nbsp;
+  <img src="docs/images/pixel-salad.png" alt="8-Bit Pixel Artifact" width="280" style="image-rendering:pixelated;" />
+  <br/>
+  <em>⬆️ Real salad photo → AI background removal → 16-color pixelation → Permanent inventory relic</em>
+</p>
+
+```
+[Real Photo] → [Gemini Flash Object Detection] → [Gemini Humorous RPG Lore + Rarity]
+                                                              │
+[Inventory Gallery] ← [Nearest-Neighbor 256×256] ← [pyxelate 64×64 Quantization] ← [rembg U2Net BG Removal]
+```
+
+Each item receives:
+- A **retro RPG name** + **rarity tier** (Common / Rare / Epic / Legendary)
+- A **humorous one-liner** connecting the object to real-life productivity
+- **Acquisition date** (`YYYY-MM-DD`)
+- **Downloadable** as `.png` pixel art or `.txt` lore card
+
+#### ☁️ Cloud Native & Serverless
+
+Fully dockerized and deployed on **Google Cloud Run** for automatic scaling and **zero cold-start latency**:
+- Frontend: Next.js 16 standalone container
+- Backend: FastAPI + **U2Net ONNX weights (170MB) pre-cached** in the Docker image layer
+- CI/CD: Google Cloud Build multi-stage pipeline
 
 ---
 
 ### 🏛 System Architecture
 
-Gamify Everything operates on a highly decoupled, serverless cloud-native architecture built for low latency and seamless scaling:
-
 ```
-+---------------------------------------------------------------------------------------------------+
-|                                      FRONTEND LAYER                                               |
-|   Next.js 16 Standalone Container (App Router, NES.css 8-bit UI, Zustand State Management)       |
-+-------------------------------------------------+-------------------------------------------------+
-                                                  |
-                                                  | RESTful JSON API / CORS
-                                                  v
-+---------------------------------------------------------------------------------------------------+
-|                                      BACKEND LAYER                                                |
-|   Python FastAPI Asynchronous Microservice hosted on Google Cloud Run                             |
-|   + Dual State Persistence: Memory state synchronized with SQLite via async SQLAlchemy ORM       |
-|   + REST Endpoints: /api/v1/proof/verify, /api/v1/players/sync, /api/v1/players/{name_or_id}      |
-+--------+----------------------------------------+----------------------------------------+--------+
-         |                                        |                                        |
-         | AI Goal Decomposition                  | Multimodal Proof Verification          | Computer Vision Pipeline
-         v                                        v                                        v
-+--------------------------------+  +--------------------------------+  +--------------------------------+
-|      Google Gemini 3.0 Pro     |  |     Google Gemini 2.5 Flash    |  |  ONNXRuntime (rembg / U2Net)   |
-|  Strict JSON Campaign Builder  |  |  Instant Image Check & Object  |  |  + pyxelate 16-Color Engine    |
-+--------------------------------+  +--------------------------------+  +--------------------------------+
+┌─────────────────────────────────────────────────────────────────┐
+│                       FRONTEND LAYER                             │
+│   Next.js 16 · React 19 · NES.css 8-bit UI · Zustand + Persist  │
+│   Google Cloud Run (Serverless, Auto-scaling)                   │
+└────────────────────────────┬────────────────────────────────────┘
+                             │  RESTful JSON API / CORS
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                       BACKEND LAYER                              │
+│   Python FastAPI Async · SQLAlchemy 2.0 + aiosqlite             │
+│   Google Cloud Run (2GB RAM, 2 CPU, CPU Boost)                  │
+│   Dual State: In-Memory ↔ SQLite Persistent Sync                │
+└──────┬──────────────────────┬──────────────────────┬────────────┘
+       │                      │                      │
+       ▼                      ▼                      ▼
+┌──────────────┐  ┌──────────────────┐  ┌──────────────────────┐
+│ Gemini 3.0   │  │ Gemini 2.5 Flash │  │ ONNXRuntime U2Net    │
+│ Pro          │  │ Multimodal       │  │ + pyxelate 16-Color  │
+│ Goal Decomp  │  │ Photo Verify     │  │ + Pillow Processing  │
+└──────────────┘  └──────────────────┘  └──────────────────────┘
 ```
 
-1. **Decoupled Stateless Services**: The frontend communicates via strictly typed RESTful JSON APIs. Both layers run in isolated Docker containers deployed on Google Cloud Run.
-2. **Persistent State Synchronization**: To ensure zero data loss in serverless environments, the frontend automatically synchronizes character progression, unlocked campaigns, and inventory items to backend storage via `POST /api/v1/players/sync`. When loading or switching accounts, `GET /api/v1/players/{name_or_id}` reconstructs the player's complete historical profile.
-3. **Zero Cold-Start Vision Engine**: The backend container embeds pre-cached `u2net.onnx` neural network weights (170MB) directly into the image layer, eliminating download latency during background removal inference.
+**REST API Endpoints:**
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/v1/quests/decompose` | AI goal decomposition → structured campaign JSON |
+| `POST` | `/api/v1/proof/verify` | Multimodal photo verification + pixel item synthesis |
+| `POST` | `/api/v1/players/sync` | Full player state persistence (cross-device) |
+| `GET` | `/api/v1/players/{name_or_id}` | Reconstruct complete player profile from DB |
+| `GET` | `/api/v1/player/{id}/state` | Quick player stats lookup |
+| `GET` | `/api/v1/player/{id}/inventory` | Player's pixel item gallery |
+| `GET` | `/api/v1/quests/active/{player_id}` | List incomplete quests |
 
 ---
 
-### 🔮 Photo to Pixel Souvenir Workflow
+### 🧰 Complete Tech Stack
 
-When a user completes a task or uses the **Free Upload / Synthesis** portal, their real-world photo undergoes a 6-step transmutation pipeline to become a permanent 8-bit pixel art souvenir:
-
-```
-[Real Photo Upload] ---> [Gemini Flash Object Detection] ---> [Gemini Humorous Lore & Date Tagging]
-                                                                                |
-[Inventory Gallery] <--- [Nearest-Neighbor Scaling] <--- [pyxelate Quantization] <--- [rembg Background Removal]
-```
-
-1. **Photo Capture & Upload**: User snaps a picture of their morning water mug, salad bowl, gym equipment, or study desk.
-2. **Multimodal AI Verification (`Gemini 2.5 Flash`)**: Scans the photo to verify completion of the objective and identifies the single most prominent real-world subject (e.g., `"Sports Water Flask"`).
-3. **Witty Lore & Date Tagging (`Gemini 3.0 Pro / Flash`)**: Generates an epic retro RPG item name, assigns a rarity tier (Common, Rare, Epic, Legendary), and writes a typewriter dialogue monologue. **Crucially, it appends a witty, humorous one-sentence observation connecting the item to real-life productivity** (e.g., *"Proven to boost productivity by 1% while looking 100% cooler!"*). The exact acquisition date (`YYYY-MM-DD`) is stamped.
-4. **AI Background Removal (`rembg / U2Net`)**: A deep neural network segments the primary object and deletes background clutter, outputting a clean transparent RGBA foreground.
-5. **16-Color NES Pixelation (`pyxelate`)**: Downsamples the segmented image to a 64x64 resolution using retro color quantization algorithms to cluster colors into an authentic 8-bit NES palette.
-6. **Upscaling & Inventory Storage**: Applies nearest-neighbor scaling to preserve hard pixel edges and saves the artifact base64 string and acquisition metadata directly into the player's permanent reward gallery.
+<table>
+<tr>
+<th>Layer</th><th>Technology</th><th>Role</th>
+</tr>
+<tr>
+<td rowspan="2"><strong>🧠 AI & LLM</strong></td>
+<td><strong>Google Gemini 3.0 Pro</strong> (<code>gemini-pro-latest</code>)</td>
+<td>Chain-of-thought goal decomposition, structured JSON campaign generation</td>
+</tr>
+<tr>
+<td><strong>Google Gemini 2.5 Flash</strong> (<code>gemini-flash-latest</code>)</td>
+<td>Multimodal vision verification, object detection, RPG lore writing</td>
+</tr>
+<tr>
+<td rowspan="4"><strong>👁️ Computer Vision</strong></td>
+<td><strong>rembg</strong> (U2Net ONNX)</td>
+<td>Deep-learning salient object detection & background removal</td>
+</tr>
+<tr>
+<td><strong>pyxelate</strong></td>
+<td>Retro 8-bit downsampling with 16-color palette quantization</td>
+</tr>
+<tr>
+<td><strong>onnxruntime</strong></td>
+<td>High-performance C++ inference engine for U2Net</td>
+</tr>
+<tr>
+<td><strong>Pillow (PIL)</strong></td>
+<td>Bounding-box cropping, padding, RGBA alpha manipulation</td>
+</tr>
+<tr>
+<td rowspan="6"><strong>💻 Frontend</strong></td>
+<td><strong>Next.js 16</strong></td>
+<td>React framework with App Router & standalone output</td>
+</tr>
+<tr>
+<td><strong>React 19</strong></td>
+<td>Latest declarative UI rendering</td>
+</tr>
+<tr>
+<td><strong>NES.css</strong></td>
+<td>Open-source 8-bit Nintendo-style retro CSS framework</td>
+</tr>
+<tr>
+<td><strong>Tailwind CSS v4</strong></td>
+<td>Utility-first atomic CSS engine</td>
+</tr>
+<tr>
+<td><strong>Zustand</strong></td>
+<td>Lightweight state management with localStorage persistence</td>
+</tr>
+<tr>
+<td><strong>Lucide React</strong></td>
+<td>Clean icon toolkit</td>
+</tr>
+<tr>
+<td rowspan="5"><strong>⚙️ Backend</strong></td>
+<td><strong>FastAPI</strong></td>
+<td>Modern async Python web framework with auto OpenAPI docs</td>
+</tr>
+<tr>
+<td><strong>Uvicorn</strong></td>
+<td>High-performance ASGI server (uvloop + httptools)</td>
+</tr>
+<tr>
+<td><strong>SQLAlchemy 2.0</strong></td>
+<td>Async ORM with aiosqlite driver</td>
+</tr>
+<tr>
+<td><strong>Pydantic v2</strong></td>
+<td>Rust-powered data validation & serialization</td>
+</tr>
+<tr>
+<td><strong>python-multipart</strong></td>
+<td>Form-data file upload parsing</td>
+</tr>
+<tr>
+<td rowspan="4"><strong>☁️ Cloud & DevOps</strong></td>
+<td><strong>Google Cloud Run</strong></td>
+<td>Fully-managed serverless container runtime</td>
+</tr>
+<tr>
+<td><strong>Google Cloud Build</strong></td>
+<td>Serverless CI/CD with multi-stage Docker builds</td>
+</tr>
+<tr>
+<td><strong>Artifact Registry</strong></td>
+<td>Secure production container image storage</td>
+</tr>
+<tr>
+<td><strong>Docker</strong></td>
+<td>Multi-stage builds ensuring dev/prod parity</td>
+</tr>
+</table>
 
 ---
 
-### 🧰 Complete Tech Stack & Open-Source Projects
+### 🔮 The Pixel Transmutation — Step by Step
 
-#### 🧠 AI Models & LLMs
-- **`Google Gemini 3.0 Pro`** (`gemini-pro-latest`): Powers complex chain-of-thought goal decomposition and structured campaign JSON generation.
-- **`Google Gemini 2.5 Flash`** (`gemini-flash-latest`): Powers lightning-fast multimodal vision verification, prominent object detection, and humorous RPG lore writing.
+When you complete a task and upload a photo, here's exactly what happens:
 
-#### 👁️ Computer Vision & Image Processing
-- **`rembg`**: Open-source tool using pre-trained **U2Net** deep neural networks for salient object detection and background removal.
-- **`pyxelate`**: Open-source Python library for downsampling images into retro 8-bit pixel art with color palette quantization.
-- **`onnxruntime`**: High-performance C++ backend engine running the U2Net neural network inference locally in memory.
-- **`Pillow (PIL)`**: Core Python Imaging Library used for bounding-box cropping, padding, and RGBA alpha manipulation.
-
-#### 💻 Frontend Open-Source Ecosystem
-- **`Next.js 16`**: React framework utilizing modern App Router and server/client component architectures.
-- **`React 19`**: Latest UI rendering library.
-- **`Tailwind CSS v4`**: Utility-first CSS styling engine.
-- **`NES.css`**: Open-source 8-bit Nintendo Entertainment System (NES) retro CSS framework.
-- **`Zustand`**: Lightweight state management library with automatic persistence hooks.
-- **`Lucide React`**: Icon toolkit providing clean visual cues.
-
-#### ⚙️ Backend Open-Source Ecosystem
-- **`FastAPI`**: Modern, asynchronous Python web framework with OpenAPI validation.
-- **`Uvicorn`**: High-performance ASGI web server implementation.
-- **`SQLAlchemy 2.0`**: Modern asynchronous Python ORM for database modeling.
-- **`aiosqlite`**: Asynchronous SQLite driver enabling non-blocking database transactions.
-- **`Pydantic v2`**: Core data validation and schema enforcement engine.
-
-#### ☁️ Cloud & DevOps Infrastructure
-- **`Google Cloud Run`**: Fully managed serverless container runtime providing automatic horizontal scaling.
-- **`Google Cloud Build`**: Serverless CI/CD pipeline executing multi-stage Docker builds.
-- **`Google Cloud Artifact Registry`**: Secure repository storing optimized production container images.
-- **`Docker`**: Multi-stage container virtualization ensuring consistent development and production environments.
+| Step | Process | Technology | Output |
+|:----:|---------|-----------|--------|
+| **1** | **Photo Capture** — snap your morning water mug, salad bowl, gym equipment, or study desk | Device Camera | Raw JPEG/PNG |
+| **2** | **AI Object Detection** — Gemini Flash scans the image, verifies quest completion, and identifies the single most prominent real-world subject | `gemini-flash-latest` | `"Sports Water Flask"` |
+| **3** | **RPG Lore & Rarity** — AI generates an epic retro item name, assigns rarity (Common→Legendary), writes a typewriter-dialogue story, and appends a witty observation connecting the item to real life | `gemini-flash-latest` | `"Abyssal Hydration Vessel"` — *Rare* |
+| **4** | **AI Background Removal** — U2Net deep neural network segments the primary object and deletes all background clutter, outputting clean transparent RGBA | `rembg` / ONNXRuntime | RGBA foreground only |
+| **5** | **16-Color Pixelation** — pyxelate downsamples to 64×64 with retro color clustering into an authentic NES 16-color palette | `pyxelate` | 64×64 quantized pixel art |
+| **6** | **Upscale & Store** — nearest-neighbor scaling preserves hard pixel edges at 256×256, saved as Base64 PNG in your permanent inventory | `Pillow` (NEAREST) | 256×256 PNG → Gallery |
 
 ---
 
-### 🚀 Quickstart Guide
+### 🎮 User Journey
+
+```
+┌──────────┐    ┌───────────┐    ┌──────────────────┐    ┌──────────────┐
+│ ONBOARD  │───▶│ SET GOAL  │───▶│ AI DECOMPOSITION │───▶│ DAILY QUESTS │
+│ Name +   │    │ "Lose 5kg │    │ JSON Campaign    │    │ + Weekly     │
+│ Avatar   │    │ in 2 mo." │    │ Blueprint        │    │ + Boss Raid  │
+└──────────┘    └───────────┘    └──────────────────┘    └──────┬───────┘
+       │                                                        │
+       │    ┌───────────────────────────────────────────────────┘
+       │    ▼
+       │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+       │  │ 📸 UPLOAD    │───▶│ 🤖 AI VERIFY │───▶│ ✅ LEVEL UP  │
+       │  │ Proof Photo  │    │ Gemini Flash │    │ + XP + Coins│
+       │  └──────────────┘    └──────┬───────┘    └──────┬───────┘
+       │                             │                    │
+       │                             ▼                    ▼
+       │                    ┌────────────────────────────────────┐
+       │                    │  🎨 6-STEP PIXEL TRANSMUTATION     │
+       │                    │  rembg → pyxelate → 256×256 PNG    │
+       │                    └────────────────┬───────────────────┘
+       │                                     │
+       ▼                                     ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    🎒 INVENTORY GALLERY                          │
+│  Collect, inspect & download pixel artifacts with RPG lore!     │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 🕹️ Interactive Slides
+
+We built a fully interactive, pixel-art themed **10-slide presentation deck** that you can view directly in your browser:
+
+<p align="center">
+  <a href="./slides.html">
+    <img src="https://img.shields.io/badge/🕹️_Open_Interactive_Slides-View_Now-e76f51?style=for-the-badge&logo=html5&logoColor=white" />
+  </a>
+</p>
+
+**Features:**
+- 🎨 Press Start 2P pixel font + NES.css 8-bit styling
+- ⌨️ Navigate with `← →` arrow keys
+- 🖨️ Print-ready (`Ctrl+P` → Save as PDF)
+- 📸 Includes app screenshots, architecture diagrams, and before/after pixel comparisons
+- 📱 QR code link to the live demo
+
+> 💡 **Tip:** Open `slides.html` in Chrome, press `Ctrl+P`, select "Save as PDF" — you'll get a pixel-perfect PDF slide deck!
+
+---
+
+<a name="-quickstart"></a>
+
+### 🚀 Quickstart
 
 #### Prerequisites
-- Node.js 20+ & npm
-- Python 3.11+
-- Google Gemini API Key ([Get one here](https://aistudio.google.com/app/apikey))
+- **Node.js** 20+ & npm
+- **Python** 3.11+
+- **Google Gemini API Key** — [Get one free](https://aistudio.google.com/app/apikey)
 
 #### 1. Backend Setup
+
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 # Create environment file
-echo 'GEMINI_API_KEY="your_gemini_api_key_here"' > .env
+echo 'GEMINI_API_KEY="your_api_key_here"' > .env
 echo 'DATABASE_URL="sqlite+aiosqlite:///./gamify.db"' >> .env
 
-# Run FastAPI development server
+# Start FastAPI dev server (port 8080)
 uvicorn app.main:app --reload --port 8080
 ```
 
+Open [http://localhost:8080/docs](http://localhost:8080/docs) for the interactive Swagger API documentation.
+
 #### 2. Frontend Setup
+
 ```bash
 cd frontend
 npm install
 
-# Run Next.js development server
+# Start Next.js dev server (port 3000)
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser to start your pixel journey!
+
+Open [http://localhost:3000](http://localhost:3000) and start your pixel adventure!
+
+---
+
+### 📡 Live Deployment
+
+<p align="center">
+  <img src="docs/images/qr-code.png" alt="QR Code — Scan to try Gamify Everything" width="180" />
+  <br/>
+  <em>Scan to try the live app!</em>
+</p>
+
+| Environment | URL |
+|-------------|-----|
+| 🎮 **Frontend** | [https://gamify-frontend-943810940065.us-central1.run.app](https://gamify-frontend-943810940065.us-central1.run.app) |
+| 📡 **API Docs** | [https://gamify-backend-943810940065.us-central1.run.app/docs](https://gamify-backend-943810940065.us-central1.run.app/docs) |
+| 🕹️ **Slides** | [`./slides.html`](./slides.html) *(this repo)* |
+
+**Deployment Architecture:**
+- **Google Cloud Run** — fully managed serverless, auto-scales from zero
+- **2 GB RAM + 2 CPU** with CPU Boost for instant cold starts
+- **170 MB U2Net ONNX weights** pre-cached in the Docker image layer — no download latency
+- **Cloud Build** CI/CD — push to main → auto-deploy
+
+---
+
+### 📁 Project Structure
+
+```
+gamify-everything/
+├── backend/                    # Python FastAPI microservice
+│   ├── app/
+│   │   ├── main.py             # FastAPI app entry + CORS + lifespan
+│   │   ├── config.py           # Pydantic settings (API key, DB URL)
+│   │   ├── database.py         # Async SQLAlchemy engine + auto-migration
+│   │   ├── models.py           # ORM: Player, Campaign, Quest, Item
+│   │   ├── schemas.py          # Pydantic v2: AI output + REST request/response
+│   │   ├── routers/
+│   │   │   ├── quests.py       # POST /decompose, GET /active
+│   │   │   ├── proof.py        # POST /verify (photo → pixel item)
+│   │   │   ├── player.py       # GET /state, GET /inventory
+│   │   │   └── players.py      # POST /sync, GET /{name_or_id}
+│   │   └── services/
+│   │       ├── ai_service.py   # Gemini API wrapper (with mock fallback)
+│   │       ├── game_engine.py  # XP/leveling/rewards/item creation logic
+│   │       └── image_pipeline.py # rembg → pyxelate → Base64 pipeline
+│   ├── Dockerfile              # Multi-stage: pre-cached U2Net weights
+│   ├── requirements.txt        # Python dependencies
+│   └── test_pipeline.py        # Standalone CV pipeline test
+├── frontend/                   # Next.js 16 frontend
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── page.tsx        # Campaign lobby (create/manage goals)
+│   │   │   ├── layout.tsx      # Root layout + NES.css + pixel font
+│   │   │   ├── globals.css     # Pixel art global styles + Mario star animation
+│   │   │   ├── onboarding/     # 3-step new user wizard
+│   │   │   ├── campaign/[id]/  # Quest dashboard (Daily/Weekly/Boss/History)
+│   │   │   ├── quest/[id]/     # Photo check-in + verification result
+│   │   │   └── inventory/      # Pixel artifact gallery + inspector
+│   │   ├── components/
+│   │   │   ├── PlayerStatusBar.tsx  # Level/EXP/Coins HUD
+│   │   │   ├── QuestCard.tsx        # Quest entry card
+│   │   │   ├── StoryTypewriter.tsx  # RPG narrative typewriter modal
+│   │   │   └── PixelContainer.tsx   # NES.css wrapper component
+│   │   ├── store/usePlayerStore.ts  # Zustand + localStorage persist
+│   │   ├── types/game.ts            # TypeScript type definitions
+│   │   └── utils/
+│   │       ├── api.ts               # API client (decompose, verify, sync, load)
+│   │       └── download.ts          # Client-side .png / .txt download
+│   ├── Dockerfile                   # Multi-stage standalone build
+│   └── package.json
+├── docs/images/                # Screenshots & assets (for README)
+├── slides-assets/             # Image assets for interactive slides
+├── slides.html                # 🕹️ Interactive 10-slide presentation deck
+├── cloudbuild.yaml            # Google Cloud Build CI/CD pipeline
+└── README.md                  # You are here!
+```
 
 ---
 
@@ -164,137 +478,205 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to start you
 ## 🌟 简体中文
 
 ### 💡 项目简介
-**Gamify Everything (现实目标 RPG 化 AI 系统)** 是一款致力于将现实生活习惯与目标“游戏化”的全栈 AI 应用。告别枯燥乏味的待办事项清单（To-Do List），系统利用强大的 **Google Gemini AI** 将你的个人目标（如 *“两个月减重5公斤”* 或 *“每天学习 Python”*）智能拆解为清晰可执行的日常打卡任务。通过 AI 视觉验证你的日常拍照打卡，并将你的真实照片实时转化为独特的 **8-bit 复古红白机像素道具**放入你的专属背包！
+
+**Gamify Everything (现实目标 RPG 化 AI 系统)** 是一款致力于将现实生活习惯与目标"游戏化"的全栈 AI 应用。告别枯燥乏味的待办事项清单，系统利用强大的 **Google Gemini AI** 将你的个人目标（如 *"两个月减重5公斤"* 或 *"每天学习 Python"*）智能拆解为清晰可执行的日常打卡任务。通过 AI 视觉验证你的日常拍照打卡，并将真实照片实时转化为独特的 **8-bit 复古红白机像素道具**，永久收录于你的专属图鉴！
+
+> 🧠 **全栈 Google 最新 AI 驱动** — 我们充分发挥了 **Gemini 3.0 Pro** 和 **Gemini 2.5 Flash** 的协同能力：Pro 的思维链推理将模糊的自然语言目标拆解为严谨的 Structured JSON 战役蓝图；Flash 的原生多模态理解能力同时完成照片真实性验证、物体识别和 RPG 道具故事创作 — 全部由一个模型端到端完成。**文本输入，像素输出。无需额外的 OCR、无需单独的分类器。一个模型，全栈多模态。**
+
+<p align="center">
+  <img src="docs/images/app-lobby.png" alt="应用大厅" width="720" style="image-rendering:pixelated;" />
+  <br/>
+  <em>⬆️ 战役大厅 — 以 8-bit 复古美学管理你的游戏化目标</em>
+</p>
+
+---
 
 ### ✨ 核心亮点
-1. 🎯 **AI 目标智能拆解 (`Gemini 3.0 Pro`)**：深入语义理解用户的宏大目标，强制以 Structured JSON 格式生成科学的阶段性里程碑与每日实操任务。
-2. 📸 **多模态打卡验证 (`Gemini 2.5 Flash`)**：用户上传真实打卡照片（如健身房自拍、学习桌面、健康餐食），Gemini Flash 在1秒内极速完成图像真实性与任务匹配度校验。
-3. 🎨 **8-Bit 像素道具合成管线**：后台非阻塞异步视觉管线，将通过验证的实拍照片自动进行 `rembg` AI 深度抠图去背、方框填充、`pyxelate` 16色聚类降维至 64x64，最终无损放大为硬边缘透明底像素道具，永久储存在玩家行囊中！
-4. ☁️ **云原生与 Serverless 弹性部署**：前后端均实现了生产级 Docker 容器化（前端 `Next.js standalone` 构建；后端内嵌 170MB `u2net.onnx` 权重预缓存），无缝部署于 **Google Cloud Run**，享受毫秒级弹性伸缩与零冷启动延迟。
+
+> 🧠 **双 Gemini 模型，一条统一 AI 管线** — 从自然语言目标拆解到视觉语言照片验证再到创意 RPG 故事写作，每一个 AI 环节都运行在 Google 最新的 Gemini 模型家族上。我们充分利用 Gemini 的**原生多模态能力**：同一个 Flash 模型在验证你的健身自拍时，同时识别画面中的物体、并为其创作一段幽默的奇幻描述 — 无需切换模型，无需胶水代码。
+
+<table>
+<tr>
+<td width="50%">
+
+#### 🎯 AI 目标智能拆解 — `Gemini 3.0 Pro`
+
+深入语义理解用户的宏大目标，通过思维链推理，利用 Gemini 原生 JSON 响应模式，一次 API 调用即可生成 **Structured JSON** 格式的完整战役蓝图：
+
+- **日常任务** (Daily Quests) — 2-3 个微习惯打卡
+- **周常里程碑** (Weekly Milestones) — 量化进度核验
+- **终极 BOSS 战** (Boss Raid) — 最终成果检验 + 传奇称号
+
+所有内容均为 AI 一次生成：RPG 世界观剧情、量化指标分析、验证提示词、难度偏好适配。
+
+<p align="center">
+  <img src="docs/images/goal-decomposition.png" alt="目标拆解 Dashboard" width="360" />
+  <br/>
+  <em>⬆️ 日/周/Boss 三层任务体系</em>
+</p>
+
+</td>
+<td width="50%">
+
+#### 📸 多模态打卡验证 — `Gemini 2.5 Flash`
+
+用户上传真实打卡照片（如健身房自拍、学习桌面、健康餐食），Gemini Flash 的**原生视觉语言多模态能力**同时处理图片+验证文本，在 **毫秒级** 内完成端到端判定 — 无需额外 OCR、无需单独分类器 — 直接返回结构化结果：
+
+```
+{
+  "is_valid": true,
+  "confidence": 0.98,
+  "reason": "...",
+  "detected_main_object": "哑铃组"
+}
+```
+
+**Free Upload / Synthesis** 自由上传模式下，任意清晰照片均可自动通过验证并生成像素道具。
+
+<p align="center">
+  <img src="docs/images/photo-verification.png" alt="照片验证" width="360" />
+  <br/>
+  <em>⬆️ 上传打卡照片 — AI 实时验证</em>
+</p>
+
+</td>
+</tr>
+</table>
+
+#### 🎨 8-Bit 像素道具合成管线
+
+后台非阻塞异步视觉管线，将通过验证的实拍照片自动进行 AI 深度抠图、像素化处理，最终无损放大为硬边缘透明底像素道具，永久储存在玩家行囊中！
+
+<p align="center">
+  <img src="docs/images/original-salad.jpeg" alt="原始照片" width="280" />
+  &nbsp;&nbsp;⟶&nbsp;&nbsp;
+  <img src="docs/images/pixel-salad.png" alt="像素道具" width="280" style="image-rendering:pixelated;" />
+  <br/>
+  <em>⬆️ 真实沙拉照片 → AI 抠图去背 → 16 色像素化 → 永久图鉴收藏</em>
+</p>
+
+```
+[用户上传实拍] → [Gemini Flash 提取主体] → [Gemini 生成幽默吐槽 + 稀有度 + 获得日期]
+                                                              │
+[永久收录至图鉴] ← [最近邻插值 256×256] ← [pyxelate 64×64 降维] ← [rembg U2Net 抠图]
+```
+
+每件道具包含：
+- **RPG 复古道具名** + **稀有度等级** (Common / Rare / Epic / Legendary)
+- **幽默趣味的一句话吐槽**，紧扣现实生活场景
+- **获得日期** (`YYYY-MM-DD`)
+- **可下载**：像素 `.png` 图片 + `.txt` 文字描述卡
 
 ---
 
-### 🏛 系统深度架构
+### 🧰 全套技术栈
 
-Gamify Everything 采用了高度解耦、前后端分离的云原生 Serverless 架构，专为极速响应与弹性自动扩缩容设计：
-
-```
-+---------------------------------------------------------------------------------------------------+
-|                                      前端交互层 (Frontend Layer)                                    |
-|   Next.js 16 独立容器 (App Router 架构, NES.css 复古红白机美学 UI, Zustand 数据持久化)               |
-+-------------------------------------------------+-------------------------------------------------+
-                                                  |
-                                                  | RESTful JSON API / CORS 跨域通信
-                                                  v
-+---------------------------------------------------------------------------------------------------+
-|                                      后端微服务层 (Backend Layer)                                   |
-|   Python FastAPI 异步微服务托管于 Google Cloud Run                                                  |
-|   + 双向持久化引擎：内存状态通过异步 SQLAlchemy ORM 实时无缝同步至 SQLite 数据库                       |
-|   + 核心 REST 接口: /api/v1/proof/verify, /api/v1/players/sync, /api/v1/players/{name_or_id}      |
-+--------+----------------------------------------+----------------------------------------+--------+
-         |                                        |                                        |
-         | AI 目标逻辑拆解                         | 多模态打卡真实性验证                    | 视觉合成管线
-         v                                        v                                        v
-+--------------------------------+  +--------------------------------+  +--------------------------------+
-|      Google Gemini 3.0 Pro     |  |     Google Gemini 2.5 Flash    |  |  ONNXRuntime (rembg / U2Net)   |
-|  严谨的 Structured JSON 生成引擎  |  |  毫秒级图像真实性校验与物体识别   |  |  + pyxelate 16色降维调色板       |
-+--------------------------------+  +--------------------------------+  +--------------------------------+
-```
-
-1. **前后端完全解耦**：前端页面与后端算法通过严格类型的 RESTful API 交互，双方分别打包为独立的 Docker 容器部署在 Google Cloud Run。
-2. **状态双向自动同步**：为解决 Serverless 环境下的无状态问题，系统内置了自动化持久化机制。当用户新建战役或打卡升级时，前端会自动触发 `POST /api/v1/players/sync` 将最新角色属性、所有任务状态和背包物品存入后端 DB。刷新网页或切换账号时，只需调用 `GET /api/v1/players/{name_or_id}` 即可完美复原完整的历史进度。
-3. **零冷启动 AI 视觉引擎**：为消除深度学习模型下载带来的网络延迟，后端构建 Docker 镜像时已提前将 170MB 的 `u2net.onnx` 权重文件内置固化在容器层中，确保后台扣图算法瞬间响应。
+<table>
+<tr><th>层级</th><th>技术</th><th>用途</th></tr>
+<tr><td rowspan="2"><strong>🧠 AI 大模型</strong></td><td><strong>Gemini 3.0 Pro</strong></td><td>思维链目标拆解，结构化 JSON 战役生成</td></tr>
+<tr><td><strong>Gemini 2.5 Flash</strong></td><td>多模态视觉验证，物体识别，RPG 故事创作</td></tr>
+<tr><td rowspan="4"><strong>👁️ 计算机视觉</strong></td><td><strong>rembg</strong> (U2Net)</td><td>深度学习显著性检测与背景去除</td></tr>
+<tr><td><strong>pyxelate</strong></td><td>8-bit 像素降采样 + 16 色调色板聚类</td></tr>
+<tr><td><strong>onnxruntime</strong></td><td>高性能 C++ 推理引擎</td></tr>
+<tr><td><strong>Pillow (PIL)</strong></td><td>边界框裁剪、RGBA 透明通道操作</td></tr>
+<tr><td rowspan="6"><strong>💻 前端</strong></td><td><strong>Next.js 16</strong></td><td>React 框架，App Router + Standalone 输出</td></tr>
+<tr><td><strong>React 19</strong></td><td>声明式 UI 渲染</td></tr>
+<tr><td><strong>NES.css</strong></td><td>开源 8-bit 任天堂复古 CSS 框架</td></tr>
+<tr><td><strong>Tailwind CSS v4</strong></td><td>原子化 CSS 引擎</td></tr>
+<tr><td><strong>Zustand</strong></td><td>轻量级状态管理 + localStorage 持久化</td></tr>
+<tr><td><strong>Lucide React</strong></td><td>开源图标工具包</td></tr>
+<tr><td rowspan="5"><strong>⚙️ 后端</strong></td><td><strong>FastAPI</strong></td><td>现代异步 Python Web 框架，自动生成 Swagger 文档</td></tr>
+<tr><td><strong>Uvicorn</strong></td><td>基于 uvloop 的高性能 ASGI 服务器</td></tr>
+<tr><td><strong>SQLAlchemy 2.0</strong></td><td>异步 ORM + aiosqlite 驱动</td></tr>
+<tr><td><strong>Pydantic v2</strong></td><td>Rust 驱动的数据验证与序列化引擎</td></tr>
+<tr><td><strong>python-multipart</strong></td><td>表单文件上传解析</td></tr>
+<tr><td rowspan="4"><strong>☁️ 云与 DevOps</strong></td><td><strong>Google Cloud Run</strong></td><td>全托管 Serverless 容器，自动弹性伸缩</td></tr>
+<tr><td><strong>Google Cloud Build</strong></td><td>无服务器 CI/CD 流水线</td></tr>
+<tr><td><strong>Artifact Registry</strong></td><td>安全容器镜像存储</td></tr>
+<tr><td><strong>Docker</strong></td><td>多阶段构建，保证开发/生产环境一致性</td></tr>
+</table>
 
 ---
 
-### 🔮 真实照片转化为 8-Bit 像素纪念品工作流
+### 🕹️ 互动演示 Slide
 
-每当用户完成日常任务或使用 **自由拍照打卡 (Free Upload / Synthesis)** 专属通道时，真实世界上传的照片将经历一条由 AI 与 CV 驱动的 6 步炼金转化管线，最终凝聚为一件永久珍藏的 8-bit 像素纪念品：
+我们制作了一个完整的像素风格 **10 页互动演示文稿**，可直接在浏览器中查看：
 
-```
-[用户上传真实照片] ---> [Gemini Flash 提取主体] ---> [Gemini 生成幽默吐槽故事与获得日期]
-                                                                                  |
-[永久收录至个人图鉴] <--- [最近邻插值无损放大] <--- [pyxelate 16色调色板降维] <--- [rembg AI 深度抠图去背]
-```
+<p align="center">
+  <a href="./slides.html">
+    <img src="./docs/images/qr-code.png" alt="QR Code" width="150" />
+  </a>
+  <br/>
+  <a href="./slides.html"><strong>🕹️ 点击打开互动 Slide</strong></a>
+  <br/>
+  <em>或扫码体验线上 App</em>
+</p>
 
-1. **实景拍照上传**：用户拍摄日常打卡照片（例如桌上的保温杯、健康沙拉碗、跑鞋或学习笔记）。
-2. **多模态智能识别 (`Gemini 2.5 Flash`)**：快速校验打卡合规性，并自动提取画面中最核心的物理实物名称（例如识别出 `"运动水壶"`）。
-3. **幽默背景故事 & 日期收录 (`Gemini 3.0 Pro / Flash`)**：为实物赋予一个霸气的 RPG 复古道具名、评定稀有度（Common, Rare, Epic, Legendary），并生成一段打字机剧情独白。**最核心的是，AI 会紧扣现实生活，生成一句幽默风趣的一句话吐槽**（例如：*“该道具已被证明能提升 1% 的工作效率，同时让颜值增加 100%！”*），同时精准打上获取时间戳 (`YYYY-MM-DD`)。
-4. **AI 深度抠图 (`rembg / U2Net`)**：利用高精度神经网络对画面主体进行精确语义分割，剔除所有背景杂物，生成带透明通道的干净 RGBA 图像。
-5. **16-Color 红白机像素化 (`pyxelate`)**：采用复古色彩聚类算法，将高清抠图降采样至 64x64 分辨率，并将丰富色彩精准归并到 16 色红白机（NES）经典调色板中。
-6. **无损缩放与行囊入库**：采用最近邻插值（Nearest-Neighbor）将其放大为硬边缘、无模糊的像素图，并将其 Base64 数据与获得日期永久储存在玩家的专属图鉴中！
-
----
-
-### 🧰 全套技术栈与开源项目清单
-
-#### 🧠 AI 大语言模型与多模态引擎 (LLMs)
-- **`Google Gemini 3.0 Pro`** (`gemini-pro-latest`)：负责复杂逻辑思维链（CoT）推理，将宏大生活目标精准拆解为 JSON 格式的阶段里程碑与每日实操任务。
-- **`Google Gemini 2.5 Flash`** (`gemini-flash-latest`)：负责毫秒级多模态视觉打卡验证、实物主体识别以及幽默风趣的 RPG 背景故事创作。
-
-#### 👁️ 计算机视觉与图像处理库 (CV)
-- **`rembg`**：开源通用去背工具，基于预训练的 **U2Net** 显著性目标检测深度神经网络，实现毫秒级高精度发丝级抠图。
-- **`pyxelate`**：开源 Python 视觉算法库，专用于将高清图像降采样并聚类生成具备 8-bit 复古美学的像素图。
-- **`onnxruntime`**：微软开源的高性能跨平台 C++ 推理引擎，在内存中直接全速运行 U2Net 模型。
-- **`Pillow (PIL)`**：Python 核心图像处理库，用于自动边界框裁剪（Bounding-box cropping）、内边距计算与 RGBA 透明通道操作。
-
-#### 💻 前端开源生态 (Frontend)
-- **`Next.js 16`**：React 框架，采用现代化 App Router 与服务端/客户端组件混合渲染架构。
-- **`React 19`**：最新的前端声明式 UI 构建库。
-- **`Tailwind CSS v4`**：下一代原子化 CSS 样式引擎。
-- **`NES.css`**：开源的 8-bit 任天堂红白机（NES）复古风格 CSS UI 框架。
-- **`Zustand`**：轻量级且极速的前端全局状态管理库，支持内建持久化中间件。
-- **`Lucide React`**：简洁美观的开源图标工具包。
-
-#### ⚙️ 后端开源生态 (Backend)
-- **`FastAPI`**：现代化、高性能的 Python 异步 Web 框架，自动生成 Swagger API 文档。
-- **`Uvicorn`**：基于 uvloop 和 httptools 极速实现的 ASGI Web 服务器。
-- **`SQLAlchemy 2.0`**：Python 生态中最强大的异步 ORM 数据库映射框架。
-- **`aiosqlite`**：异步 SQLite 驱动程序，确保高并发请求下数据库操作非阻塞。
-- **`Pydantic v2`**：基于 Rust 驱动的 Python 数据验证与序列化引擎。
-
-#### ☁️ 云端原生运维与容器化 (Cloud & DevOps)
-- **`Google Cloud Run`**：全托管的 Serverless 容器计算平台，支持毫秒级冷启动与流量自动弹性扩缩容至零。
-- **`Google Cloud Build`**：GCP 云端自动化 CI/CD 流水线，负责读取 Dockerfile 构建多阶段生产镜像。
-- **`Google Cloud Artifact Registry`**：企业级安全容器镜像存储库。
-- **`Docker`**：多阶段镜像构建容器技术，确保本地开发与云端生产环境百分之百一致。
+- 🎨 Press Start 2P 像素字体 + NES.css 8-bit 风格
+- ⌨️ `← →` 方向键翻页，`Home/End` 跳首尾
+- 🖨️ `Ctrl+P` → 另存为 PDF，完美分页
 
 ---
+
+<a name="-quickstart-cn"></a>
 
 ### 🚀 本地开发快速启动
 
 #### 环境要求
-- Node.js 20+ & npm
-- Python 3.11+
-- Google Gemini API 密钥 ([申请地址](https://aistudio.google.com/app/apikey))
+- **Node.js** 20+ & npm
+- **Python** 3.11+
+- **Google Gemini API 密钥** — [免费申请](https://aistudio.google.com/app/apikey)
 
-#### 1. 启动后端 API 服务
+#### 1. 启动后端
+
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # Windows 用户执行: venv\Scripts\activate
+source venv/bin/activate      # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# 创建配置文件写入 API Key
-echo 'GEMINI_API_KEY="你的_GEMINI_API_KEY"' > .env
+echo 'GEMINI_API_KEY="你的_API_KEY"' > .env
 echo 'DATABASE_URL="sqlite+aiosqlite:///./gamify.db"' >> .env
 
-# 启动 FastAPI 本地服务 (运行在 8080 端口)
 uvicorn app.main:app --reload --port 8080
 ```
 
-#### 2. 启动前端页面
+访问 [http://localhost:8080/docs](http://localhost:8080/docs) 查看 Swagger API 文档。
+
+#### 2. 启动前端
+
 ```bash
 cd frontend
 npm install
-
-# 启动 Next.js 开发服务器
 npm run dev
 ```
-在浏览器中打开 [http://localhost:3000](http://localhost:3000) 即可体验！
+
+在浏览器打开 [http://localhost:3000](http://localhost:3000) 开始你的像素之旅！
+
+---
+
+### 📡 线上部署
+
+| 环境 | URL |
+|------|-----|
+| 🎮 **前端** | [https://gamify-frontend-943810940065.us-central1.run.app](https://gamify-frontend-943810940065.us-central1.run.app) |
+| 📡 **API 文档** | [https://gamify-backend-943810940065.us-central1.run.app/docs](https://gamify-backend-943810940065.us-central1.run.app/docs) |
+| 🕹️ **互动 Slide** | [`./slides.html`](./slides.html) *(本仓库内)* |
 
 ---
 
 <div align="center">
-  <p>Built with ❤️ for the Google AI Hackathon 2026</p>
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║   Built with ❤️ for Google AI Hackathon 2026                ║
+║                                                              ║
+║   Presented by Haoran Xu                                     ║
+║                                                              ║
+║   ★ GAME ON! 游戏开始! ★                                    ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
 </div>
