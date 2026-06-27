@@ -6,18 +6,18 @@ import { PixelContainer } from '@/components/PixelContainer';
 import { decomposeGoal } from '@/utils/api';
 
 const PRESET_SEEDS = [
-  { label: "[PALADIN]", seed: "Paladin" },
-  { label: "[VALKYRIE]", seed: "Valkyrie" },
-  { label: "[WIZARD]", seed: "Merlin" },
-  { label: "[SHADOW]", seed: "Ninja" },
-  { label: "[CYBERPUNK]", seed: "Neo" },
-  { label: "[MONARCH]", seed: "King" }
+  { label: "PALADIN", seed: "Paladin" },
+  { label: "VALKYRIE", seed: "Valkyrie" },
+  { label: "WIZARD", seed: "Merlin" },
+  { label: "SHADOW", seed: "Ninja" },
+  { label: "CYBERPUNK", seed: "Neo" },
+  { label: "MONARCH", seed: "King" }
 ];
 
 export default function OnboardingPage() {
   const router = useRouter();
   const { createCharacter, addCampaign, openStory, loadFromServer } = usePlayerStore();
-  
+
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [heroName, setHeroName] = useState("8-BIT HERO");
   const [avatarSeed, setAvatarSeed] = useState("Paladin");
@@ -95,7 +95,7 @@ export default function OnboardingPage() {
               Welcome! Please enter your name or username to start tracking your goals and earn rewards.
             </p>
             <div className="text-left">
-              <label className="text-xs text-[#f4a261] block mb-2">YOUR NAME / USERNAME:</label>
+              <label className="text-xs text-[#f4a261] block mb-2">YOUR NAME:</label>
               <input
                 type="text"
                 className="nes-input is-dark text-center font-bold tracking-widest text-sm"
@@ -104,7 +104,7 @@ export default function OnboardingPage() {
                 maxLength={16}
               />
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <button
                 type="button"
@@ -136,7 +136,7 @@ export default function OnboardingPage() {
             </div>
 
             <button onClick={handleRandomize} type="button" className="nes-btn is-warning text-xs">
-              [RANDOMIZE AVATAR]
+              RANDOMIZE AVATAR
             </button>
 
             <div className="text-left pt-2 border-t border-gray-800">
