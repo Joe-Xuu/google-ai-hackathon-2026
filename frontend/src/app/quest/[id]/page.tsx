@@ -42,6 +42,11 @@ export default function QuestCheckinPage({ params }: { params: Promise<{ id: str
     }
   }
 
+  if (questId === 'free_upload' || questId.startsWith('free_upload')) {
+    questTitle = "FREE UPLOAD / SYNTHESIZE ANY ITEM";
+    promptReq = "Upload any photo related to your everyday life or current goal. AI will automatically approve it and craft an 8-bit inventory relic with a humorous observation!";
+  }
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
@@ -70,7 +75,8 @@ export default function QuestCheckinPage({ params }: { params: Promise<{ id: str
             name: res.generated_rpg_item.rpg_item_name,
             lore: res.generated_rpg_item.rpg_lore,
             rarity: res.generated_rpg_item.rarity as any,
-            image_base64: res.generated_rpg_item.pixel_image_url
+            image_base64: res.generated_rpg_item.pixel_image_url,
+            created_at: res.generated_rpg_item.created_at || new Date().toISOString().split('T')[0]
           });
           setTransmutedItem(res.generated_rpg_item);
         }

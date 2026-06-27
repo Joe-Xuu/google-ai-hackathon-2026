@@ -62,7 +62,7 @@ class FlashVerificationSchema(BaseModel):
 
 class RPGItemLoreSchema(BaseModel):
     rpg_item_name: str = Field(description="Transmuted 8-bit retro RPG item name based on detected real object")
-    rpg_lore: str = Field(description="Retro lore description of the transmuted artifact")
+    rpg_lore: str = Field(description="Retro lore description of the transmuted artifact. MUST append a humorous one-sentence observation about how this item relates to everyday life or habit tracking!")
     rarity: str = Field(description="Rarity tier: common, rare, epic, or legendary")
     story_dialogue: str = Field(description="Exciting typewriter narrator text when the item is unlocked")
 
@@ -94,6 +94,7 @@ class ItemSchema(BaseModel):
     lore: str
     rarity: str
     image_base64: str
+    created_at: Optional[str] = None
 
 class VerificationResultSchema(BaseModel):
     is_valid: bool
@@ -113,6 +114,7 @@ class GeneratedRPGItemSchema(BaseModel):
     rpg_lore: str
     rarity: str
     pixel_image_url: str
+    created_at: Optional[str] = None
 
 class VerifyProofResponse(BaseModel):
     verification: VerificationResultSchema

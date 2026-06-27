@@ -247,7 +247,8 @@ async def get_player_data(name_or_id: str, db: AsyncSession = Depends(get_db)):
             "name": itm.name,
             "lore": itm.lore,
             "rarity": itm.rarity,
-            "image_base64": itm.image_base64
+            "image_base64": itm.image_base64,
+            "created_at": itm.created_at.strftime("%Y-%m-%d") if itm.created_at else None
         }
         for itm in items_db
     ]

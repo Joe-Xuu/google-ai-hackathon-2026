@@ -95,6 +95,7 @@ class GameEngineService:
         )
         db.add(item)
         await db.commit()
+        await db.refresh(item)
 
         return GeneratedRPGItemSchema(
             item_id=item_id,
@@ -102,7 +103,8 @@ class GameEngineService:
             rpg_item_name=name,
             rpg_lore=lore,
             rarity=rarity,
-            pixel_image_url=image_b64
+            pixel_image_url=image_b64,
+            created_at=item.created_at.strftime("%Y-%m-%d") if item.created_at else None
         )
 
 game_engine = GameEngineService()

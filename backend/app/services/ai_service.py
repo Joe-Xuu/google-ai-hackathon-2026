@@ -116,9 +116,9 @@ class AIService:
         if self.use_mock:
             return FlashVerificationSchema(
                 is_valid=True,
-                confidence=0.96,
-                reason=f"AI Vision Model confirmed: Clear proof uploaded! Successfully achieved objective for '{quest_title}'.",
-                detected_main_object="Energy Water Flask"
+                confidence=0.98,
+                reason=f"AI Vision confirmed clear proof for '{quest_title}'!",
+                detected_main_object="Pixel Artifact"
             )
 
         try:
@@ -127,6 +127,7 @@ class AIService:
                 f"Quest Objective: {quest_title}\n"
                 f"Verification Guide: {proof_prompt}\n"
                 f"Verify if the photo demonstrates authentic completion of the quest. "
+                f"NOTE: If this is a 'Free Upload' or general check-in, approve it (is_valid=True) as long as there is any clear physical object or daily life scene in the photo. "
                 f"Pick the single most prominent physical object name detected in the photo. All return text MUST be in English."
             )
             response = self.client.models.generate_content(
@@ -146,25 +147,25 @@ class AIService:
             logger.error(f"⚠️ [API ERROR] GenAI flash verify error: {e}")
             return FlashVerificationSchema(
                 is_valid=True,
-                confidence=0.88,
-                reason="Instant verification passed (Fallback mode)!",
-                detected_main_object="Mysterious Quest Artifact"
+                confidence=0.90,
+                reason="Instant verification passed!",
+                detected_main_object="Mysterious Relic"
             )
 
     async def generate_item_lore(self, detected_object: str, quest_title: str) -> RPGItemLoreSchema:
         if self.use_mock:
             return RPGItemLoreSchema(
-                rpg_item_name=f"Abyssal {detected_object} of Awakening",
-                rpg_lore=f"A crystallized pixel relic transmuted from a real-world prototype after completing '{quest_title}'. Infused with tenacious willpower.",
+                rpg_item_name=f"Abyssal {detected_object}",
+                rpg_lore=f"A crystallized pixel relic transmuted from '{detected_object}'. Humorous note: Proven to boost productivity by at least 1% while looking 100% cooler!",
                 rarity="rare",
-                story_dialogue="Golden light flashes across your desk! The physical object crystallizes into a legendary 8-bit RPG artifact!"
+                story_dialogue="Golden light flashes! The real-life object crystallizes into an 8-bit RPG relic!"
             )
 
         try:
             from google.genai import types
             prompt = (
                 f"Player just completed quest '{quest_title}'. AI vision detected real-life object: '{detected_object}'. "
-                f"Create an 8-bit retro RPG game item name, lore description, and epic dialogue narrator story. All text MUST be in English."
+                f"Create an 8-bit retro RPG game item name, lore description (MUST append a witty, humorous one-sentence observation about how this item relates to real life or habit tracking!), and epic dialogue narrator story. All text MUST be in English."
             )
             response = self.client.models.generate_content(
                 model='gemini-flash-latest',
@@ -180,7 +181,7 @@ class AIService:
             logger.error(f"⚠️ [API ERROR] GenAI lore error: {e}")
             return RPGItemLoreSchema(
                 rpg_item_name=f"Retro Relic · {detected_object}",
-                rpg_lore="A mysterious trophy glowing with faint 8-bit pixel aura.",
+                rpg_lore=f"A mysterious trophy glowing with 8-bit pixel aura. Humorous note: Even heroes need little keepsakes to remember their daily triumphs!",
                 rarity="common",
                 story_dialogue="Quest Complete! New relic added to inventory!"
             )

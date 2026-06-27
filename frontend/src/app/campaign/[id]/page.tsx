@@ -123,6 +123,13 @@ export default function CampaignDashboardPage({ params }: { params: Promise<{ id
         {/* TAB 1: DAILY TRIALS */}
         {activeTab === 'daily' && (
           <div className="space-y-2 animate-fade-in">
+            <QuestCard
+              id="free_upload"
+              title="FREE UPLOAD / SYNTHESIS"
+              description="Upload any goal or lifestyle photo! AI will approve it & craft an 8-bit relic with witty lore."
+              xpReward={50}
+              mpReward={15}
+            />
             {campaign.daily_quests.map((q) => (
               <QuestCard
                 key={q.id}
