@@ -19,9 +19,9 @@ export default function RootLayout({
             <a href="/" className="text-xl md:text-2xl font-bold tracking-wider text-[#f4a261] hover:text-white transition-colors flex items-center gap-2">
               GAMIFY.EVERYTHING
             </a>
-            <nav className="flex gap-4 text-xs md:text-sm">
-              <a href="/" className="nes-badge"><span className="is-warning">[GOALS]</span></a>
-              <a href="/inventory" className="nes-badge"><span className="is-success">[ITEMS]</span></a>
+            <nav className="flex gap-3 text-xs items-center">
+              <a href="/" className="nes-btn is-warning text-[10px] px-3 py-1">[GOALS]</a>
+              <a href="/inventory" className="nes-btn is-success text-[10px] px-3 py-1">[ITEMS]</a>
             </nav>
           </div>
         </header>
