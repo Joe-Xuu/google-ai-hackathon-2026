@@ -56,9 +56,15 @@ async def verify_proof(
     # B.1 发放经验与金币奖励
     rewards_granted = await game_engine.grant_quest_rewards(db, player, xp_reward, mp_reward)
 
-    # B.2 调用 Gemini Pro 生成中世纪物品背景故事
-    detected_obj = flash_res.detected_main_object or "冒险者物品"
-    item_lore = await ai_service.generate_item_lore(detected_obj, quest_title)
+    # B.2 生成物品背景故事（free upload 用视觉分析，普通任务用 detected_obj）
+    is_free_upload = quest_id.startswith("free_upload")
+    if is_free_upload:
+        # 直接把图片传给 Gemini，让它分析内容并生成 lore
+        item_lore = await ai_service.analyze_free_upload_image(image_bytes)
+        detected_obj = flash_res.detected_main_object or "Everyday Item"
+    else:
+        detected_obj = flash_res.detected_main_object or "冒险者物品"
+        item_lore = await ai_service.generate_item_lore(detected_obj, quest_title)
 
     # B.3 【核心管线】派发至独立后台线程池非阻塞执行 rembg 抠图 + pyxelate 16色降采样
     pixel_b64 = await image_pipeline.execute_async(image_bytes)

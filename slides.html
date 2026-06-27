@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gamify Everything — Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet">
+<style>
+/* ============================================================
+   PIXEL ART SLIDE DECK — Gamify Everything
+   ============================================================ */
+
+:root {
+  --bg: #212529;
+  --dark: #0d0d0d;
+  --gold: #f4a261;
+  --red: #e76f51;
+  --green: #2a9d8f;
+  --blue: #4cc9f0;
+  --purple: #9b5de5;
+  --white: #f8f9fa;
+  --gray: #6c757d;
+  --slide-w: 1280px;
+  --slide-h: 720px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0 !important; }
+
+body {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  background: #000;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---- NAVIGATION BAR ---- */
+#nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  border-top: 4px solid var(--red);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+#nav-bar button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+#slide-counter {
+  font-size: 12px;
+  color: var(--gold);
+  min-width: 100px;
+  text-align: center;
+}
+
+/* ---- SLIDE CONTAINER ---- */
+#slide-wrapper {
+  width: var(--slide-w);
+  height: var(--slide-h);
+  margin: 20px auto 80px;
+  position: relative;
+}
+.slide {
+  width: var(--slide-w);
+  height: var(--slide-h);
+  position: absolute;
+  top: 0; left: 0;
+  display: none;
+  flex-direction: column;
+  padding: 48px 56px;
+  background: var(--bg);
+  border: 6px solid #fff;
+  box-shadow:
+    8px 8px 0 #000,
+    12px 12px 0 var(--red),
+    inset 0 0 60px rgba(0,0,0,0.3);
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+.slide.active { display: flex; }
+
+/* ---- DECORATIVE PIXEL CORNERS ---- */
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px;
+  width: 20px; height: 20px;
+  border-left: 4px solid var(--gold);
+  border-top: 4px solid var(--gold);
+}
+.slide::after {
+  content: '';
+  position: absolute;
+  bottom: 12px; right: 12px;
+  width: 20px; height: 20px;
+  border-right: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+}
+
+/* ---- TYPOGRAPHY ---- */
+h1 { font-size: 28px; line-height: 1.6; }
+h2 { font-size: 20px; line-height: 1.5; }
+h3 { font-size: 14px; line-height: 1.5; }
+p, li { font-size: 11px; line-height: 2; }
+.text-gold { color: var(--gold); }
+.text-red { color: var(--red); }
+.text-green { color: var(--green); }
+.text-blue { color: var(--blue); }
+.text-purple { color: var(--purple); }
+.text-gray { color: var(--gray); }
+.text-xs { font-size: 9px; }
+.text-sm { font-size: 10px; }
+.text-lg { font-size: 16px; }
+.text-xl { font-size: 24px; }
+.text-center { text-align: center; }
+.mono { font-family: 'Courier New', monospace; font-size: 10px; }
+
+/* ---- PIXEL BORDERS & BOXES ---- */
+.pixel-box {
+  border: 4px solid #fff;
+  padding: 20px;
+  background: var(--dark);
+  box-shadow: 6px 6px 0 #000;
+  position: relative;
+}
+.pixel-box-gold { border-color: var(--gold); box-shadow: 6px 6px 0 var(--gold); }
+.pixel-box-red { border-color: var(--red); box-shadow: 6px 6px 0 var(--red); }
+.pixel-box-green { border-color: var(--green); box-shadow: 6px 6px 0 var(--green); }
+
+/* ---- SCREENSHOT PLACEHOLDER ---- */
+.ss-placeholder {
+  border: 3px dashed var(--gold);
+  background: #1a1a2e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 10px;
+  text-align: center;
+  gap: 8px;
+  padding: 16px;
+  min-height: 120px;
+  position: relative;
+  animation: dashPulse 2s infinite;
+}
+.ss-placeholder i { font-size: 32px; }
+@keyframes dashPulse {
+  0%, 100% { border-color: var(--gold); }
+  50% { border-color: var(--red); }
+}
+
+/* ---- GRID LAYOUTS ---- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+.flex-row { display: flex; gap: 24px; align-items: center; }
+.flex-col { display: flex; flex-direction: column; gap: 12px; }
+.flex-1 { flex: 1; }
+.gap-16 { gap: 16px; }
+.gap-24 { gap: 24px; }
+
+/* ---- PIPELINE ARROWS ---- */
+.pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pipeline-step {
+  background: var(--dark);
+  border: 3px solid var(--gold);
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 9px;
+  min-width: 100px;
+  box-shadow: 4px 4px 0 #000;
+}
+.pipeline-arrow {
+  font-size: 18px;
+  color: var(--red);
+  font-family: monospace;
+}
+
+/* ---- MARIO STAR GLOW ---- */
+@keyframes marioStarEffect {
+  0% { filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 16px #ffff00) hue-rotate(0deg) brightness(1); }
+  50% { filter: drop-shadow(0 0 14px #00ffff) drop-shadow(0 0 24px #ff00ff) hue-rotate(180deg) brightness(1.3); }
+  100% { filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 16px #ffff00) hue-rotate(360deg) brightness(1); }
+}
+.mario-star { display: inline-block; animation: marioStarEffect 1.5s infinite ease-in-out; }
+
+/* ---- TYPEWRITER BLINK ---- */
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.blink { animation: blink 1s infinite; }
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pixelPulse { 0%, 100% { box-shadow: 6px 6px 0 var(--gold); } 50% { box-shadow: 6px 6px 0 var(--red); } }
+.animate-fade { animation: fadeInUp 0.5s ease-out; }
+.animate-pulse-box { animation: pixelPulse 2s infinite; }
+
+/* ---- BADGE ---- */
+.badge {
+  display: inline-block;
+  border: 3px solid;
+  padding: 6px 14px;
+  font-size: 10px;
+  background: #000;
+}
+.badge-gold { border-color: var(--gold); color: var(--gold); }
+.badge-red { border-color: var(--red); color: var(--red); }
+.badge-green { border-color: var(--green); color: var(--green); }
+
+/* ---- ARCH DIAGRAM ---- */
+.arch-layer {
+  border: 3px solid #fff;
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 10px;
+  background: var(--dark);
+  margin-bottom: 8px;
+}
+.arch-arrow {
+  text-align: center;
+  font-size: 20px;
+  color: var(--gold);
+  margin: 4px 0;
+}
+.arch-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.arch-box {
+  border: 3px solid;
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 9px;
+  background: #000;
+}
+.arch-box-gold { border-color: var(--gold); }
+.arch-box-blue { border-color: var(--blue); }
+.arch-box-purple { border-color: var(--purple); }
+
+/* ---- PROGRESS BAR (custom pixel) ---- */
+.pixel-progress {
+  height: 20px;
+  background: #000;
+  border: 3px solid #fff;
+  position: relative;
+  overflow: hidden;
+}
+.pixel-progress-fill {
+  height: 100%;
+  background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 8px, #e67e22 8px, #e67e22 16px);
+}
+
+/* ---- DOT MATRIX BG ---- */
+.dot-matrix {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* ---- SLIDE SPECIFIC ---- */
+.slide-1-title { font-size: 38px; letter-spacing: 2px; }
+.slide-1-subtitle { font-size: 13px; color: var(--gold); }
+
+/* ---- PRINT ---- */
+@media print {
+  body { background: #fff; }
+  #nav-bar { display: none !important; }
+  #slide-wrapper {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  .slide {
+    display: flex !important;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh;
+    page-break-after: always;
+    box-shadow: none;
+    border: 4px solid #000;
+  }
+  .slide:last-child { page-break-after: avoid; }
+}
+
+/* ---- RESPONSIVE SCALING ---- */
+@media (max-width: 1320px) {
+  #slide-wrapper {
+    transform: scale(0.75);
+    transform-origin: top center;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 1000px) {
+  #slide-wrapper {
+    transform: scale(0.55);
+    transform-origin: top center;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 700px) {
+  #slide-wrapper {
+    transform: scale(0.4);
+    transform-origin: top center;
+    margin-bottom: 10px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<div id="nav-bar">
+  <button class="nes-btn is-error" onclick="prevSlide()">◀ PREV</button>
+  <span id="slide-counter">1 / 10</span>
+  <button class="nes-btn is-primary" onclick="nextSlide()">NEXT ▶</button>
+  <span style="color:var(--gray);font-size:10px;">|</span>
+  <span style="font-size:9px;color:var(--gray);">← → keys</span>
+</div>
+
+<!-- ============================================================
+     SLIDES
+     ============================================================ -->
+<div id="slide-wrapper">
+
+  <!-- ============ SLIDE 1: TITLE ============ -->
+  <div class="slide active dot-matrix" style="justify-content:center;align-items:center;text-align:center;">
+    <div style="margin-bottom:20px;">
+      <span class="mario-star" style="font-size:48px;">★</span>
+    </div>
+    <h1 class="slide-1-title" style="margin-bottom:12px;">
+      <span style="color:var(--gold);">GAMIFY</span>
+      <span style="color:var(--white);">.EVERYTHING</span>
+    </h1>
+    <p class="slide-1-subtitle" style="margin-bottom:32px;max-width:700px;">
+      Turn Your Real-Life Goals into an 8-Bit Retro Pixel Adventure<br>
+      <span class="text-gray text-xs" style="display:block;margin-top:8px;">将现实生活目标转化为 8-bit 复古像素打卡与收集游戏</span>
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <span class="badge badge-red">Google AI Hackathon 2026</span>
+      <span class="badge badge-gold">Powered by Gemini 3.0 Pro + 2.5 Flash</span>
+    </div>
+    <div style="margin-top:40px;">
+      <p class="text-xs text-gray">Built with ❤️ for the Google AI Hackathon</p>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: PROBLEM & SOLUTION ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:28px;"><span class="text-red">[</span> THE PROBLEM <span class="text-red">]</span> &amp; <span class="text-gold">[</span> OUR SOLUTION <span class="text-gold">]</span></h2>
+    <div class="grid-2" style="flex:1;align-items:stretch;">
+      <!-- Problem -->
+      <div class="pixel-box pixel-box-red flex-col" style="justify-content:flex-start;">
+        <h3 class="text-red" style="margin-bottom:12px;">❌ TRADITIONAL HABIT TRACKING</h3>
+        <div class="flex-col gap-16" style="margin-top:8px;">
+          <div><p>😴 Boring to-do lists with zero motivation</p></div>
+          <div><p>🤳 No way to verify if you actually did it</p></div>
+          <div><p>📉 People quit after 2 weeks (on average)</p></div>
+          <div><p>🎯 Vague goals like "get fit" — no structure</p></div>
+        </div>
+      </div>
+      <!-- Solution -->
+      <div class="pixel-box pixel-box-gold flex-col" style="justify-content:flex-start;">
+        <h3 class="text-gold" style="margin-bottom:12px;">✅ GAMIFY EVERYTHING</h3>
+        <div class="flex-col gap-16" style="margin-top:8px;">
+          <div><p>🎮 RPG game mechanics — quests, XP, boss raids!</p></div>
+          <div><p>📸 AI photo verification — prove you actually did it</p></div>
+          <div><p>🎨 Earn unique 8-bit pixel items from your photos</p></div>
+          <div><p>🧠 Gemini AI decomposes goals into daily missions</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: WHAT IS IT? ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:24px;"><span class="text-gold">[</span> WHAT IS GAMIFY EVERYTHING? <span class="text-gold">]</span></h2>
+    <p class="text-gray text-sm" style="margin-bottom:32px;">An AI-powered full-stack app that bridges vague aspirations and structured daily execution</p>
+
+    <!-- Concept pipeline -->
+    <div class="pipeline" style="margin-bottom:32px;">
+      <div class="pipeline-step">
+        <div style="font-size:28px;margin-bottom:4px;">🎯</div>
+        <strong>Real-Life Goal</strong><br>
+        <span class="text-xs text-gray">"Lose 5kg in 2 months"</span>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step">
+        <div style="font-size:28px;margin-bottom:4px;">🧠</div>
+        <strong>Gemini AI<br>Decomposes</strong><br>
+        <span class="text-xs text-gray">→ Daily Quests</span>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step">
+        <div style="font-size:28px;margin-bottom:4px;">📸</div>
+        <strong>Photo Proof<br>Check-in</strong><br>
+        <span class="text-xs text-gray">AI Vision Verifies</span>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step">
+        <div style="font-size:28px;margin-bottom:4px;">🎁</div>
+        <strong>8-Bit Pixel<br>Reward!</strong><br>
+        <span class="text-xs text-gray">Unique Souvenir</span>
+      </div>
+    </div>
+
+    <!-- Screenshot placeholder -->
+    <div class="ss-placeholder" style="flex:1;min-height:140px;">
+      <i class="nes-icon is-large star"></i>
+      <strong>[SCREENSHOT: App Lobby / Campaign Dashboard]</strong>
+      <span class="text-xs text-gray">Show the main page with campaign cards and progress bars</span>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: SYSTEM ARCHITECTURE ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:20px;"><span class="text-gold">[</span> SYSTEM ARCHITECTURE <span class="text-gold">]</span></h2>
+    <p class="text-xs text-gray" style="margin-bottom:20px;">Decoupled, serverless cloud-native — built for low latency & seamless scaling</p>
+
+    <!-- Frontend -->
+    <div class="arch-layer" style="border-color:var(--gold);margin-bottom:4px;">
+      <strong class="text-gold">FRONTEND LAYER</strong><br>
+      <span class="text-xs">Next.js 16 · React 19 · NES.css 8-bit UI · Zustand State · Tailwind CSS v4</span>
+    </div>
+    <div class="arch-arrow">▼ RESTful JSON API / CORS ▼</div>
+    <!-- Backend -->
+    <div class="arch-layer" style="border-color:var(--gold);margin-bottom:4px;">
+      <strong class="text-gold">BACKEND LAYER — Google Cloud Run</strong><br>
+      <span class="text-xs">Python FastAPI Async · SQLAlchemy 2.0 + aiosqlite · Pydantic v2</span><br>
+      <span class="text-xs text-gray">Dual State Persistence: In-Memory ↔ SQLite Sync</span>
+    </div>
+    <div class="arch-arrow">▼ ▼ ▼</div>
+    <!-- AI & CV -->
+    <div class="arch-row">
+      <div class="arch-box arch-box-gold">
+        <strong class="text-gold">🧠 Gemini 3.0 Pro</strong><br>
+        <span class="text-xs">Structured JSON<br>Campaign Builder<br>Goal Decomposition</span>
+      </div>
+      <div class="arch-box arch-box-blue">
+        <strong class="text-blue">📸 Gemini 2.5 Flash</strong><br>
+        <span class="text-xs">Multimodal Proof<br>Verification<br>Object Detection</span>
+      </div>
+      <div class="arch-box arch-box-purple">
+        <strong class="text-purple">🎨 CV Pipeline</strong><br>
+        <span class="text-xs">ONNXRuntime U2Net<br>rembg + pyxelate<br>16-Color Engine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: GOAL DECOMPOSITION ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:16px;"><span class="text-gold">[</span> AI GOAL DECOMPOSITION <span class="text-gold">]</span></h2>
+    <p class="text-xs text-gray" style="margin-bottom:20px;">Gemini 3.0 Pro analyzes vague goals → structured JSON campaign blueprint</p>
+
+    <div class="grid-2" style="flex:1;">
+      <!-- Input side -->
+      <div class="flex-col gap-16">
+        <div class="pixel-box pixel-box-gold">
+          <h3 class="text-gold text-sm" style="margin-bottom:8px;">INPUT</h3>
+          <p style="font-size:12px;">"I want to lose 5kg in 2 months"</p>
+          <p class="text-xs text-gray" style="margin-top:8px;">Difficulty: Normal / Hardcore</p>
+        </div>
+        <div class="pixel-box" style="flex:1;">
+          <h3 class="text-sm" style="margin-bottom:8px;">AI CHAIN-OF-THOUGHT</h3>
+          <div class="flex-col gap-16 text-xs">
+            <p>1️⃣ Extract duration: <span class="text-gold">60 days</span></p>
+            <p>2️⃣ Calculate daily quota: <span class="text-gold">500 kcal deficit</span></p>
+            <p>3️⃣ Set weekly targets: <span class="text-gold">-1.25 kg/week</span></p>
+            <p>4️⃣ Generate RPG world theme &amp; lore</p>
+            <p>5️⃣ Design 3-tier quest hierarchy</p>
+          </div>
+        </div>
+      </div>
+      <!-- Output side -->
+      <div class="pixel-box pixel-box-green flex-col" style="justify-content:flex-start;">
+        <h3 class="text-green text-sm" style="margin-bottom:8px;">STRUCTURED JSON OUTPUT</h3>
+        <div class="flex-col gap-16 text-xs">
+          <div style="background:#000;padding:10px;border:2px solid var(--green);">
+            <p class="text-green">Daily Quests (2-3):</p>
+            <p class="text-gray">· Sever Morning Sloth — wake up + water</p>
+            <p class="text-gray">· Calorie Deficit Trial — salad or workout</p>
+          </div>
+          <div style="background:#000;padding:10px;border:2px solid var(--blue);">
+            <p class="text-blue">Weekly Milestones (4):</p>
+            <p class="text-gray">· Week 1 Checkpoint — verify 1.25kg loss</p>
+            <p class="text-gray">· Week 2 Midterm — verify 2.5kg total</p>
+          </div>
+          <div style="background:#000;padding:10px;border:2px solid var(--red);">
+            <p class="text-red">Boss Raid (1):</p>
+            <p class="text-gray">· Day 60: Prove full 5kg loss → Legendary Title</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ss-placeholder" style="margin-top:12px;min-height:60px;">
+      <strong>[SCREENSHOT: Campaign Dashboard — Daily/Weekly/Boss tabs with tasks]</strong>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 6: PHOTO VERIFICATION ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:16px;"><span class="text-gold">[</span> MULTIMODAL PHOTO VERIFICATION <span class="text-gold">]</span></h2>
+    <p class="text-xs text-gray" style="margin-bottom:20px;">Gemini 2.5 Flash — lightning-fast vision AI checks your proof photos</p>
+
+    <div class="grid-2" style="flex:1;">
+      <!-- Flow -->
+      <div class="flex-col gap-16">
+        <div class="pixel-box pixel-box-blue">
+          <h3 class="text-blue text-sm" style="margin-bottom:12px;">VERIFICATION FLOW</h3>
+          <div class="flex-col gap-16">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">📤</span>
+              <p>User uploads photo + quest context</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">🔍</span>
+              <p>Gemini Flash scans image + proof prompt</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">✅</span>
+              <p>Returns structured verdict in milliseconds</p>
+            </div>
+          </div>
+        </div>
+        <!-- Output schema -->
+        <div class="pixel-box" style="background:#000;flex:1;">
+          <h3 class="text-green text-sm" style="margin-bottom:8px;">API RESPONSE SCHEMA</h3>
+          <pre style="font-size:9px;color:var(--green);font-family:'Courier New',monospace;line-height:1.6;">
+{
+  "is_valid": true,
+  "confidence": 0.98,
+  "reason": "Clear photo of gym equipment
+             and sweat — quest complete!",
+  "detected_main_object": "Dumbbell Set"
+}</pre>
+        </div>
+      </div>
+      <!-- Screenshot -->
+      <div class="ss-placeholder" style="min-height:280px;">
+        <i class="nes-icon is-large trophy"></i>
+        <strong>[SCREENSHOT: Quest Check-in Page]</strong>
+        <span class="text-xs text-gray">Show photo upload UI + verification result with confidence score</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 7: 6-STEP PIXEL TRANSMUTATION ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:16px;"><span class="text-gold">[</span> THE 6-STEP PIXEL TRANSMUTATION PIPELINE <span class="text-gold">]</span></h2>
+    <p class="text-xs text-gray" style="margin-bottom:16px;">Real photo → 8-bit pixel art souvenir — a non-blocking async computer vision pipeline</p>
+
+    <!-- Pipeline steps -->
+    <div class="pipeline" style="margin-bottom:20px;">
+      <div class="pipeline-step" style="min-width:120px;">
+        <div style="font-size:24px;">📷</div>
+        <strong>1. Photo<br>Upload</strong>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step" style="min-width:130px;">
+        <div style="font-size:24px;">🔍</div>
+        <strong>2. AI Object<br>Detection</strong>
+        <span class="text-xs text-gray">Gemini Flash</span>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step" style="min-width:130px;">
+        <div style="font-size:24px;">📜</div>
+        <strong>3. RPG Lore<br>Generation</strong>
+        <span class="text-xs text-gray">Name + Rarity + Story</span>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step" style="min-width:120px;">
+        <div style="font-size:24px;">✂️</div>
+        <strong>4. AI Background<br>Removal</strong>
+        <span class="text-xs text-gray">rembg / U2Net</span>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step" style="min-width:120px;">
+        <div style="font-size:24px;">🎨</div>
+        <strong>5. 16-Color<br>Pixelation</strong>
+        <span class="text-xs text-gray">pyxelate → 64x64</span>
+      </div>
+      <span class="pipeline-arrow">▸</span>
+      <div class="pipeline-step" style="min-width:130px;">
+        <div style="font-size:24px;">🖼️</div>
+        <strong>6. Upscale<br>&amp; Store</strong>
+        <span class="text-xs text-gray">256x256 PNG</span>
+      </div>
+    </div>
+
+    <!-- Screenshot placeholder: before/after -->
+    <div class="grid-2" style="flex:1;">
+      <div class="ss-placeholder">
+        <i class="nes-icon is-large coin"></i>
+        <strong>[SCREENSHOT: Original Photo]</strong>
+        <span class="text-xs text-gray">e.g., a water bottle, salad, or gym selfie</span>
+      </div>
+      <div class="ss-placeholder">
+        <i class="nes-icon is-large star"></i>
+        <strong>[SCREENSHOT: Pixel Art Result]</strong>
+        <span class="text-xs text-gray">8-bit inventory item in the inventory gallery</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 8: TECH STACK ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:20px;"><span class="text-gold">[</span> COMPLETE TECH STACK <span class="text-gold">]</span></h2>
+    <p class="text-xs text-gray" style="margin-bottom:20px;">All open-source — from AI to deployment</p>
+
+    <div class="grid-4" style="flex:1;">
+      <!-- AI & LLMs -->
+      <div class="pixel-box pixel-box-gold flex-col" style="justify-content:flex-start;">
+        <h3 class="text-gold text-sm" style="margin-bottom:10px;">🧠 AI &amp; LLMs</h3>
+        <div class="flex-col gap-16 text-xs">
+          <p>· Gemini 3.0 Pro</p>
+          <p>· Gemini 2.5 Flash</p>
+          <p>· Structured JSON Output</p>
+          <p>· Multimodal Vision API</p>
+          <p>· Chain-of-Thought</p>
+        </div>
+      </div>
+      <!-- Computer Vision -->
+      <div class="pixel-box pixel-box-purple flex-col" style="justify-content:flex-start; border-color:var(--purple);">
+        <h3 class="text-purple text-sm" style="margin-bottom:10px;">👁️ CV &amp; Imaging</h3>
+        <div class="flex-col gap-16 text-xs">
+          <p>· rembg (U2Net)</p>
+          <p>· pyxelate (16-color)</p>
+          <p>· ONNXRuntime</p>
+          <p>· Pillow (PIL)</p>
+          <p>· Nearest-Neighbor</p>
+        </div>
+      </div>
+      <!-- Frontend -->
+      <div class="pixel-box pixel-box-blue flex-col" style="justify-content:flex-start; border-color:var(--blue);">
+        <h3 class="text-blue text-sm" style="margin-bottom:10px;">💻 Frontend</h3>
+        <div class="flex-col gap-16 text-xs">
+          <p>· Next.js 16</p>
+          <p>· React 19</p>
+          <p>· Tailwind CSS v4</p>
+          <p>· NES.css (8-bit UI)</p>
+          <p>· Zustand (State)</p>
+          <p>· Lucide React</p>
+        </div>
+      </div>
+      <!-- Backend & DevOps -->
+      <div class="pixel-box pixel-box-green flex-col" style="justify-content:flex-start;">
+        <h3 class="text-green text-sm" style="margin-bottom:10px;">☁️ Backend &amp; Ops</h3>
+        <div class="flex-col gap-16 text-xs">
+          <p>· FastAPI + Uvicorn</p>
+          <p>· SQLAlchemy 2.0</p>
+          <p>· aiosqlite</p>
+          <p>· Docker Multi-stage</p>
+          <p>· Google Cloud Run</p>
+          <p>· Cloud Build CI/CD</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;">
+      <span class="badge badge-gold text-xs">Zero Cold Start — 170MB U2Net weights baked into Docker image</span>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 9: LIVE DEMO & DEPLOYMENT ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;">
+    <h2 style="margin-bottom:20px;"><span class="text-gold">[</span> LIVE DEMO &amp; CLOUD DEPLOYMENT <span class="text-gold">]</span></h2>
+
+    <div class="grid-2" style="flex:1;">
+      <!-- Live links -->
+      <div class="flex-col gap-16">
+        <div class="pixel-box pixel-box-gold animate-pulse-box">
+          <h3 class="text-gold text-sm" style="margin-bottom:12px;">🔗 TRY IT LIVE</h3>
+          <div class="flex-col gap-16 text-xs">
+            <p>🎮 <strong>Frontend:</strong><br><span class="text-blue mono">gamify-frontend-943810940065.us-central1.run.app</span></p>
+            <p>📡 <strong>API Docs (Swagger):</strong><br><span class="text-blue mono">gamify-backend-943810940065.us-central1.run.app/docs</span></p>
+          </div>
+        </div>
+        <div class="pixel-box pixel-box-green">
+          <h3 class="text-green text-sm" style="margin-bottom:12px;">☁️ GOOGLE CLOUD RUN</h3>
+          <div class="flex-col gap-16 text-xs">
+            <p>✅ Fully Serverless — auto-scales to zero</p>
+            <p>✅ 2GB RAM + 2 CPU + CPU Boost</p>
+            <p>✅ Pre-cached ONNX model weights</p>
+            <p>✅ Multi-stage Docker builds</p>
+            <p>✅ Cloud Build CI/CD pipeline</p>
+          </div>
+        </div>
+      </div>
+      <!-- QR / Screenshot -->
+      <div class="ss-placeholder" style="min-height:280px;">
+        <i class="nes-icon is-large trophy"></i>
+        <strong>[SCREENSHOT: Live App or QR Code]</strong>
+        <span class="text-xs text-gray">Show the deployed app running in browser, or a QR code linking to it</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 10: THANK YOU ============ -->
+  <div class="slide dot-matrix" style="justify-content:center;align-items:center;text-align:center;">
+    <div style="margin-bottom:24px;">
+      <span class="mario-star" style="font-size:56px;">★</span>
+    </div>
+    <h1 style="font-size:32px;margin-bottom:12px;">
+      <span class="text-gold">THANK</span> <span style="color:var(--white);">YOU</span>
+    </h1>
+    <p style="font-size:14px;color:var(--gold);margin-bottom:32px;">QUEST COMPLETE!</p>
+
+    <div class="pixel-box" style="max-width:600px;margin-bottom:24px;">
+      <div class="flex-col gap-16 text-sm text-center">
+        <p><span class="text-gray">Project:</span> Gamify Everything</p>
+        <p><span class="text-gray">Built for:</span> Google AI Hackathon 2026</p>
+        <p><span class="text-gray">Stack:</span> Gemini AI + FastAPI + Next.js + Cloud Run</p>
+      </div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <p class="text-xs text-gray">Powered by Google Gemini AI &amp; Open-Source CV</p>
+      <p class="text-xs text-gray" style="margin-top:8px;">🎮 Game on! | 游戏开始!</p>
+    </div>
+
+    <!-- Placeholder for team info -->
+    <div class="ss-placeholder" style="max-width:400px;min-height:60px;margin-top:20px;">
+      <strong>[TEAM INFO / GITHUB LINK / CONTACT]</strong>
+    </div>
+  </div>
+
+</div><!-- /slide-wrapper -->
+
+<!-- ============================================================
+     NAVIGATION SCRIPT
+     ============================================================ -->
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('slide-counter');
+  let current = 0;
+  const total = slides.length;
+
+  function showSlide(n) {
+    slides[current].classList.remove('active', 'animate-fade');
+    current = ((n % total) + total) % total;
+    slides[current].classList.add('active', 'animate-fade');
+    counter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  window.nextSlide = function() { showSlide(current + 1); };
+  window.prevSlide = function() { showSlide(current - 1); };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); showSlide(current + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); showSlide(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); showSlide(0); }
+    if (e.key === 'End') { e.preventDefault(); showSlide(total - 1); }
+  });
+})();
+</script>
+
+</body>
+</html>

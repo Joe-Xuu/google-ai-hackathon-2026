@@ -186,4 +186,46 @@ class AIService:
                 story_dialogue="Quest Complete! New relic added to inventory!"
             )
 
+    async def analyze_free_upload_image(self, image_bytes: bytes) -> RPGItemLoreSchema:
+        """For free upload quests: analyze the image directly with vision and generate lore in one shot."""
+        if self.use_mock:
+            return RPGItemLoreSchema(
+                rpg_item_name="Enigmatic Pixel Relic",
+                rpg_lore="A mysterious object pulled from the streams of everyday life, crystallized into an 8-bit souvenir. Humorous note: Science still can't explain why random things look cooler as pixel art!",
+                rarity="rare",
+                story_dialogue="The everyday object shimmers and transforms! A new relic is born!"
+            )
+
+        try:
+            from google.genai import types
+            prompt = (
+                "You are an 8-bit RPG item forge master. Carefully analyze this uploaded photo. "
+                "Describe what you see in 1-2 sentences (scene, main subjects, mood, colors, context). "
+                "Then, using that analysis as inspiration, forge a unique 8-bit retro RPG inventory item: "
+                "a creative item name, a lore description that references what you actually saw in the image "
+                "(MUST end with a witty, humorous one-sentence real-life observation), and a rarity tier. "
+                "All text MUST be in English."
+            )
+            response = self.client.models.generate_content(
+                model='gemini-flash-latest',
+                contents=[
+                    types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg"),
+                    prompt
+                ],
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=RPGItemLoreSchema,
+                    temperature=0.85
+                )
+            )
+            return RPGItemLoreSchema.model_validate_json(response.text)
+        except Exception as e:
+            logger.error(f"⚠️ [API ERROR] Free upload image analysis failed: {e}")
+            return RPGItemLoreSchema(
+                rpg_item_name="Mystery Relic of the Upload",
+                rpg_lore="An artifact of unknown origin, captured in the liminal moment between reality and pixels. Humorous note: Not all heroes know what they carry — but they carry it with style!",
+                rarity="rare",
+                story_dialogue="A daily life scene crystallizes into legend! New relic forged!"
+            )
+
 ai_service = AIService()
