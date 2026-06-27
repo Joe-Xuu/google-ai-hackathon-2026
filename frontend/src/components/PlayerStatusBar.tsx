@@ -14,7 +14,7 @@ export const PlayerStatusBar: React.FC = () => {
           </div>
           <div>
             <h2 className="text-base md:text-lg text-[#f4a261] font-bold tracking-wide flex items-center gap-2">
-              <span className="mario-star inline-block"><i className="nes-icon star is-small"></i></span>
+              <span className="mario-star inline-block"><i className="nes-icon star"></i></span>
               {player.name}
             </h2>
             <p className="text-xs text-gray-400 mt-1">STATUS: [ACTIVE TRACKER]</p>
@@ -22,7 +22,7 @@ export const PlayerStatusBar: React.FC = () => {
         </div>
         <div className="flex items-center gap-4">
           <span className="nes-text is-warning text-sm font-bold flex items-center gap-1">
-            <span className="mario-star inline-block"><i className="nes-icon star is-small"></i></span> LEVEL {player.level}
+            <span className="mario-star inline-block"><i className="nes-icon star"></i></span> LEVEL {player.level}
           </span>
           <span className="nes-text is-success text-sm font-bold flex items-center gap-1">
             <i className="nes-icon coin is-small"></i> {player.coins} COINS

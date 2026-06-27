@@ -52,30 +52,18 @@ html, body {
 /* 超级玛丽无敌星特效 (Super Mario Star Rainbow Glow & Pulse) */
 @keyframes marioStarEffect {
   0% {
-    filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 20px #ffff00) hue-rotate(0deg);
-    transform: scale(1) translateY(0px) rotate(-15deg);
-  }
-  25% {
-    filter: drop-shadow(0 0 15px #00ff00) drop-shadow(0 0 25px #00ffff) hue-rotate(90deg);
-    transform: scale(1.35) translateY(-6px) rotate(15deg);
+    filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 16px #ffff00) hue-rotate(0deg) brightness(1);
   }
   50% {
-    filter: drop-shadow(0 0 15px #0000ff) drop-shadow(0 0 25px #ff00ff) hue-rotate(180deg);
-    transform: scale(1) translateY(0px) rotate(-15deg);
-  }
-  75% {
-    filter: drop-shadow(0 0 15px #ff00ff) drop-shadow(0 0 25px #ffff00) hue-rotate(270deg);
-    transform: scale(1.35) translateY(-6px) rotate(15deg);
+    filter: drop-shadow(0 0 14px #00ffff) drop-shadow(0 0 24px #ff00ff) hue-rotate(180deg) brightness(1.3);
   }
   100% {
-    filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 20px #ffff00) hue-rotate(360deg);
-    transform: scale(1) translateY(0px) rotate(-15deg);
+    filter: drop-shadow(0 0 8px #ff0000) drop-shadow(0 0 16px #ffff00) hue-rotate(360deg) brightness(1);
   }
 }
 
 .mario-star, .mario-star i {
   display: inline-block !important;
-  animation: marioStarEffect 0.4s infinite linear !important;
-  will-change: transform, filter !important;
-  transform-origin: center center !important;
+  animation: marioStarEffect 1.5s infinite ease-in-out !important;
+  will-change: filter !important;
 }
