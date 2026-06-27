@@ -14,14 +14,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-[#212529] text-white selection:bg-[#e76f51] selection:text-white">
-        <header className="border-b-4 border-white bg-black p-4 text-center shadow-[0_4px_0_#e76f51]">
-          <div className="mx-auto max-w-5xl flex justify-between items-center px-2">
-            <a href="/" className="text-xl md:text-2xl font-bold tracking-wider text-[#f4a261] hover:text-white transition-colors flex items-center gap-2">
-              GAMIFY.EVERYTHING
+        <header className="border-b-4 border-white bg-black shadow-[0_4px_0_#e76f51]">
+          <div className="mx-auto max-w-5xl flex justify-between items-center px-3 py-3 gap-2">
+            <a href="/" className="font-bold tracking-wider text-[#f4a261] hover:text-white transition-colors flex items-center shrink-0 text-base md:text-2xl">
+              <span className="hidden sm:inline">GAMIFY.EVERYTHING</span>
+              <span className="sm:hidden">G.E</span>
             </a>
-            <nav className="flex gap-3 text-xs items-center">
-              <a href="/" className="nes-btn is-warning text-[10px] px-3 py-1">[GOALS]</a>
-              <a href="/inventory" className="nes-btn is-success text-[10px] px-3 py-1">[ITEMS]</a>
+            <nav className="flex gap-2 items-center shrink-0">
+              <a href="/" className="nes-btn is-warning text-[9px] sm:text-[10px] px-2 sm:px-3 py-1 whitespace-nowrap">[GOALS]</a>
+              <a href="/inventory" className="nes-btn is-success text-[9px] sm:text-[10px] px-2 sm:px-3 py-1 whitespace-nowrap">[ITEMS]</a>
             </nav>
           </div>
         </header>
