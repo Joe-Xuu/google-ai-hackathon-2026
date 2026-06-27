@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { usePlayerStore } from '@/store/usePlayerStore';
 import { RPGItem } from '@/types/game';
+import { downloadItemImage, downloadItemLore } from '@/utils/download';
 
 export default function InventoryPage() {
   const inventory = usePlayerStore((state) => state.inventory);
@@ -82,10 +83,28 @@ export default function InventoryPage() {
 
               <div className="space-y-2 border-t border-gray-800 pt-3">
                 <p className="text-gray-400">Detected Object: <span className="text-white">{selectedItem.real_world_object}</span></p>
+                {selectedItem.created_at && (
+                  <p className="text-gray-400">Acquired Date: <span className="text-yellow-400">{selectedItem.created_at}</span></p>
+                )}
                 <p className="text-gray-400">Description:</p>
                 <p className="text-white leading-relaxed bg-black/60 p-3 border border-gray-800 font-mono text-[11px]">
                   {selectedItem.lore}
                 </p>
+
+                <div className="flex flex-col sm:flex-row gap-2 pt-3">
+                  <button
+                    onClick={() => downloadItemImage(selectedItem.image_base64, selectedItem.name)}
+                    className="nes-btn is-primary text-[10px] w-full flex-1 py-1 px-1"
+                  >
+                    SAVE .PNG IMAGE
+                  </button>
+                  <button
+                    onClick={() => downloadItemLore(selectedItem.name, selectedItem.rarity, selectedItem.real_world_object, selectedItem.lore, selectedItem.created_at)}
+                    className="nes-btn is-warning text-[10px] w-full flex-1 py-1 px-1"
+                  >
+                    SAVE .TXT LORE
+                  </button>
+                </div>
               </div>
             </div>
           ) : (

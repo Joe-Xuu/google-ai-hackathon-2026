@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { usePlayerStore } from '@/store/usePlayerStore';
 import { StoryTypewriter } from '@/components/StoryTypewriter';
 import { verifyProof } from '@/utils/api';
+import { downloadItemImage, downloadItemLore } from '@/utils/download';
 
 export default function QuestCheckinPage({ params }: { params: Promise<{ id: string }> }) {
   const unwrappedParams = React.use(params);
@@ -123,9 +124,24 @@ export default function QuestCheckinPage({ params }: { params: Promise<{ id: str
             {transmutedItem.rpg_lore}
           </p>
 
-          <p className="text-[10px] text-green-400 font-mono mb-6">
+          <p className="text-[10px] text-green-400 font-mono mb-4">
             * Added to your Reward Items!
           </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-2 mb-6">
+            <button
+              onClick={() => downloadItemImage(transmutedItem.pixel_image_url, transmutedItem.rpg_item_name)}
+              className="nes-btn is-primary text-[10px] px-2 py-1"
+            >
+              SAVE .PNG IMAGE
+            </button>
+            <button
+              onClick={() => downloadItemLore(transmutedItem.rpg_item_name, transmutedItem.rarity || 'rare', transmutedItem.real_world_object_detected, transmutedItem.rpg_lore, transmutedItem.created_at)}
+              className="nes-btn is-warning text-[10px] px-2 py-1"
+            >
+              SAVE .TXT LORE
+            </button>
+          </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <button
