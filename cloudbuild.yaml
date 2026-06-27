@@ -1,0 +1,36 @@
+steps:
+  # Step 1: 使用 Docker 构建后端容器镜像
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/gamify-repo/backend:latest',
+      './backend'
+    ]
+
+  # Step 2: 推送镜像到 GCP Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push',
+      'us-central1-docker.pkg.dev/$PROJECT_ID/gamify-repo/backend:latest'
+    ]
+
+  # Step 3: 部署至 Cloud Run (分配 2GB 内存以支撑 rembg ONNX 推理)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: [
+      'run', 'deploy', 'gamify-backend',
+      '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/gamify-repo/backend:latest',
+      '--region', 'us-central1',
+      '--platform', 'managed',
+      '--allow-unauthenticated',
+      '--memory', '2Gi',
+      '--cpu', '2',
+      '--cpu-boost',
+      '--set-env-vars', 'GEMINI_API_KEY=${_GEMINI_API_KEY}'
+    ]
+
+substitutions:
+  _GEMINI_API_KEY: "insert-key-here"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
