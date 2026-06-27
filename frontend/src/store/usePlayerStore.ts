@@ -8,7 +8,8 @@ interface PlayerStore {
   campaigns: CampaignData[];
   inventory: RPGItem[];
   storyDialogue: { text: string; isOpen: boolean; tone?: string };
-  
+  _hasHydrated: boolean;
+
   createCharacter: (name: string, avatarUrl: string) => void;
   addCampaign: (campaign: CampaignData) => void;
   deleteCampaign: (campaignId: string) => void;
@@ -20,6 +21,7 @@ interface PlayerStore {
   openStory: (text: string, tone?: string) => void;
   closeStory: () => void;
   resetGame: () => void;
+  _setHasHydrated: (val: boolean) => void;
 }
 
 const INIT_PLAYER: PlayerState = {
@@ -44,6 +46,7 @@ export const usePlayerStore = create<PlayerStore>()(
       campaigns: [],
       inventory: [],
       storyDialogue: { text: "", isOpen: false, tone: "epic" },
+      _hasHydrated: false,
       
       createCharacter: (name, avatarUrl) => {
         set((state) => {
@@ -180,16 +183,21 @@ export const usePlayerStore = create<PlayerStore>()(
 
       openStory: (text, tone = "epic") => set({ storyDialogue: { text, isOpen: true, tone } }),
       closeStory: () => set({ storyDialogue: { text: "", isOpen: false } }),
-      resetGame: () => set({ player: INIT_PLAYER, campaigns: [], inventory: [] })
+      resetGame: () => set({ player: INIT_PLAYER, campaigns: [], inventory: [] }),
+      _setHasHydrated: (val: boolean) => set({ _hasHydrated: val }),
     }),
     {
-      name: 'gamify-player-store', // localStorage key
+      name: 'gamify-player-store',
       partialize: (state) => ({
         // Only persist game data, NOT the transient storyDialogue UI state
         player: state.player,
         campaigns: state.campaigns,
         inventory: state.inventory,
       }),
+      onRehydrateStorage: () => (state) => {
+        // Called once localStorage data has been loaded into the store
+        state?._setHasHydrated(true);
+      },
     }
   )
 );

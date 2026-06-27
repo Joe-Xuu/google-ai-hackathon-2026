@@ -8,7 +8,7 @@ import { decomposeGoal } from '@/utils/api';
 
 export default function CampaignLobbyPage() {
   const router = useRouter();
-  const { player, campaigns, addCampaign, deleteCampaign, openStory } = usePlayerStore();
+  const { player, campaigns, addCampaign, deleteCampaign, openStory, _hasHydrated } = usePlayerStore();
   
   const [showModal, setShowModal] = useState(false);
   const [inputGoal, setInputGoal] = useState("");
@@ -16,10 +16,16 @@ export default function CampaignLobbyPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!player.has_completed_onboarding) {
+    if (_hasHydrated && !player.has_completed_onboarding) {
       router.push("/onboarding");
     }
-  }, [player.has_completed_onboarding, router]);
+  }, [_hasHydrated, player.has_completed_onboarding, router]);
+
+  // Show nothing until the persisted store has rehydrated from localStorage
+  // This prevents the flash-redirect when has_completed_onboarding is temporarily false
+  if (!_hasHydrated) {
+    return <div className="text-center py-20 text-xs font-mono text-gray-600">[LOADING...]</div>;
+  }
 
   if (!player.has_completed_onboarding) {
     return <div className="text-center py-20 text-xs font-mono">[REDIRECTING TO ONBOARDING...]</div>;
