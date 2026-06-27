@@ -25,7 +25,8 @@ async def init_db():
             "ALTER TABLE quests ADD COLUMN tier VARCHAR DEFAULT 'daily';",
             "ALTER TABLE quests ADD COLUMN week_number INTEGER;",
             "ALTER TABLE quests ADD COLUMN scheduled_date VARCHAR;",
-            "ALTER TABLE quests ADD COLUMN completed_at VARCHAR;"
+            "ALTER TABLE quests ADD COLUMN completed_at VARCHAR;",
+            "ALTER TABLE items ADD COLUMN created_at DATETIME;"
         ]
         for sql in migrations:
             try:

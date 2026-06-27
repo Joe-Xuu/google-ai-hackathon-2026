@@ -1,8 +1,9 @@
 import json
 import uuid
+from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, func
 from sqlalchemy.orm import selectinload
 from app.database import get_db
 from app.models import Player, Campaign, Quest, Item
@@ -146,6 +147,14 @@ async def sync_player_data(data: PlayerSyncRequestSchema, db: AsyncSession = Dep
         itm_id = itm_dict.get("id") or f"itm_{uuid.uuid4().hex[:6]}"
         res_itm = await db.execute(select(Item).where(Item.id == itm_id))
         itm = res_itm.scalar_one_or_none()
+        
+        created_at_val = None
+        if itm_dict.get("created_at"):
+            try:
+                created_at_val = datetime.strptime(itm_dict["created_at"], "%Y-%m-%d")
+            except Exception:
+                pass
+
         if not itm:
             itm = Item(
                 id=itm_id,
@@ -154,18 +163,24 @@ async def sync_player_data(data: PlayerSyncRequestSchema, db: AsyncSession = Dep
                 name=itm_dict.get("name", "Pixel Item"),
                 lore=itm_dict.get("lore", "Transmuted relic."),
                 rarity=itm_dict.get("rarity", "rare"),
-                image_base64=itm_dict.get("image_base64", "")
+                image_base64=itm_dict.get("image_base64", ""),
+                created_at=created_at_val or datetime.utcnow()
             )
             db.add(itm)
+        else:
+            itm.player_id = player.id
+            if itm_dict.get("name"): itm.name = itm_dict["name"]
+            if itm_dict.get("lore"): itm.lore = itm_dict["lore"]
+            if created_at_val: itm.created_at = created_at_val
 
     await db.commit()
     return {"status": "success", "message": "Player synchronized to database."}
 
 @router.get("/{name_or_id}", response_model=PlayerFullDataSchema)
 async def get_player_data(name_or_id: str, db: AsyncSession = Depends(get_db)):
-    # Query player by id or exact name
+    # Query player by id or exact/case-insensitive name
     res = await db.execute(
-        select(Player).where((Player.id == name_or_id) | (Player.name == name_or_id))
+        select(Player).where((Player.id == name_or_id) | (func.lower(Player.name) == name_or_id.lower()))
     )
     player = res.scalar_one_or_none()
     
